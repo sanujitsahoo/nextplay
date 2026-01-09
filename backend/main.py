@@ -18,6 +18,7 @@ import recommender
 import intake_specialist
 from config import (
     BASE_DIR,
+    MODELS_DIR,
     ALLOWED_ORIGINS,
     VERCEL_ORIGIN_REGEX,
     API_TITLE,
@@ -133,25 +134,42 @@ async def load_data():
         transition_matrix = {}
     
     # Load milestone map
-    milestone_map = engine_logic.load_milestone_map(str(MILESTONE_MAP_JSON))
+    milestone_map_path = str(MILESTONE_MAP_JSON)
+    print(f"Attempting to load milestone_map from: {milestone_map_path}")
+    print(f"File exists: {MILESTONE_MAP_JSON.exists()}")
+    print(f"Absolute path: {MILESTONE_MAP_JSON.absolute()}")
+    milestone_map = engine_logic.load_milestone_map(milestone_map_path)
     if milestone_map:
         print(f"✓ Loaded milestone_map.json ({len(milestone_map)} entries)")
+    else:
+        print(f"⚠ Warning: milestone_map.json is empty or could not be loaded from {milestone_map_path}")
+        # List files in models directory for debugging
+        if MODELS_DIR.exists():
+            print(f"Files in {MODELS_DIR}: {list(MODELS_DIR.iterdir())}")
+        else:
+            print(f"⚠ Models directory does not exist: {MODELS_DIR}")
     
     # Initialize intake specialist
+    global intake_specialist_instance
     try:
         openai_api_key = os.getenv(ENV_OPENAI_API_KEY)
-        if openai_api_key:
+        if not openai_api_key:
+            print(f"⚠ Warning: {ENV_OPENAI_API_KEY} not set. Intake Specialist will not be available.")
+            intake_specialist_instance = None
+        elif not milestone_map:
+            print(f"⚠ Warning: milestone_map.json is empty or not loaded. Intake Specialist will not be available.")
+            intake_specialist_instance = None
+        else:
             intake_specialist_instance = intake_specialist.IntakeSpecialist(
                 milestone_map,
                 openai_api_key=openai_api_key,
                 model=os.getenv(ENV_OPENAI_MODEL, DEFAULT_OPENAI_MODEL)
             )
-            print(f"✓ Initialized Intake Specialist with OpenAI")
-        else:
-            print(f"⚠ Warning: {ENV_OPENAI_API_KEY} not set. Intake Specialist will not be available.")
-            intake_specialist_instance = None
+            print(f"✓ Initialized Intake Specialist with OpenAI ({len(milestone_map)} milestones available)")
     except Exception as e:
         print(f"⚠ Warning: Could not initialize Intake Specialist: {e}")
+        import traceback
+        traceback.print_exc()
         intake_specialist_instance = None
     
     # Load activities
@@ -370,10 +388,16 @@ async def process_intake(request: IntakeRequest):
     Returns structured JSON with clarification questions if needed.
     """
     if intake_specialist_instance is None:
-        raise HTTPException(
-            status_code=503,
-            detail="Intake Specialist is not available. Please ensure milestone_map.json is loaded."
-        )
+        # Check why it's not available
+        openai_api_key = os.getenv(ENV_OPENAI_API_KEY)
+        if not openai_api_key:
+            detail = f"Intake Specialist is not available: {ENV_OPENAI_API_KEY} environment variable is not set. Please configure it in your deployment settings."
+        elif not milestone_map:
+            detail = "Intake Specialist is not available: milestone_map.json is missing or empty. Please ensure the file exists in the models/ directory."
+        else:
+            detail = "Intake Specialist is not available. Please check server logs for initialization errors."
+        
+        raise HTTPException(status_code=503, detail=detail)
     
     try:
         result = intake_specialist_instance.process_intake(request.description)
