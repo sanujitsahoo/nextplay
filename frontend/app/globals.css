@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  @apply bg-gradient-to-br from-pastel-blue/20 via-pastel-purple/20 to-pastel-pink/20 min-h-screen;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-pastel-blue/10;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pastel-purple/40 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-pastel-purple/60;
+}
+

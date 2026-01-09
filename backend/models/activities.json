@@ -1,0 +1,302 @@
+[
+  {
+    "target_milestone_id": "ddifmm009",
+    "title": "Feet Discovery Party",
+    "materials": ["a colorful sock"],
+    "instructions": [
+      "Lay your baby on their back and place a bright, colorful sock on one foot.",
+      "Watch as they discover their feet and use both feet together to kick, pull, and explore the new sensation."
+    ],
+    "benefit": "Science Tip: Foot play develops lower body awareness and coordination, while bilateral foot movement strengthens the neural pathways for future walking patterns."
+  },
+  {
+    "target_milestone_id": "ddigmm060",
+    "title": "The Great Roll Over",
+    "materials": ["a favorite toy"],
+    "instructions": [
+      "Place your baby on their back and position a favorite toy just out of reach to one side.",
+      "Encourage them to reach across their body and roll from back to front to get the toy."
+    ],
+    "benefit": "Science Tip: Rolling over requires coordinated rotation of the trunk, head control, and weight shifting, developing cross-lateral movement patterns."
+  },
+  {
+    "target_milestone_id": "ddicmm030",
+    "title": "Mirror Mimic",
+    "materials": ["a mirror"],
+    "instructions": [
+      "Hold your baby in front of a mirror and make big, exaggerated smiles and faces.",
+      "Encourage your baby to smile back by smiling at them and pointing at both reflections in the mirror."
+    ],
+    "benefit": "Science Tip: Social smiling strengthens neural pathways for emotional recognition and social bonding, activating the brain's reward systems."
+  },
+  {
+    "target_milestone_id": "ddigmd063",
+    "title": "Independent Sitter",
+    "materials": ["toys"],
+    "instructions": [
+      "Sit your baby on the floor without support and place toys just within reach around them.",
+      "Encourage reaching for toys while maintaining balance, building confidence in unassisted sitting."
+    ],
+    "benefit": "Science Tip: Unassisted sitting requires mature core strength and balance, freeing both hands for play and exploration while developing postural control."
+  },
+  {
+    "target_milestone_id": "ddifmd002",
+    "title": "The Tracking Challenge",
+    "materials": ["a colorful rattle"],
+    "instructions": [
+      "Hold a colorful rattle about 12 inches from your baby and slowly move it in a 30-degree arc from side to side.",
+      "Encourage your baby to follow with both their eyes and turn their head to track the movement across the arc."
+    ],
+    "benefit": "Science Tip: Coordinated eye and head tracking develops the vestibulo-ocular reflex and enhances spatial awareness by connecting visual input with motor responses."
+  },
+  {
+    "target_milestone_id": "ddigmd061",
+    "title": "Sitting Head Balance",
+    "materials": ["soft pillows"],
+    "instructions": [
+      "Sit your baby supported on soft pillows and gently sway them side to side.",
+      "Watch as they maintain head balance and keep their head centered while sitting."
+    ],
+    "benefit": "Science Tip: Head balance in sitting demonstrates mature vestibular reflexes and neck strength, allowing babies to explore their environment while maintaining stability."
+  },
+  {
+    "target_milestone_id": "ddigmm065",
+    "title": "Pull Up Power",
+    "materials": ["a low coffee table"],
+    "instructions": [
+      "Place your baby on the floor next to a low, stable piece of furniture with interesting items on top.",
+      "Encourage them to reach up and pull themselves to standing by holding onto the furniture edge."
+    ],
+    "benefit": "Science Tip: Pulling to stand builds leg and core strength while developing balance and weight shifting skills needed for independent standing."
+  },
+  {
+    "target_milestone_id": "ddigmd055",
+    "title": "Sit Up Helper",
+    "materials": ["your hands"],
+    "instructions": [
+      "Lay your baby on their back and gently pull them up to sitting by holding their hands.",
+      "Observe as they keep their head aligned with their body instead of letting it lag behind."
+    ],
+    "benefit": "Science Tip: Head control during sit-up motion shows neck extensor strength and vestibular development, crucial for maintaining balance in upright positions."
+  },
+  {
+    "target_milestone_id": "ddigmd058",
+    "title": "Side Look Explorer",
+    "materials": ["a rattle"],
+    "instructions": [
+      "Place your baby on their tummy and gently shake a rattle to one side.",
+      "Watch as they lift and turn their head to look around to the side, achieving a 90-degree head rotation."
+    ],
+    "benefit": "Science Tip: Lateral head rotation during tummy time develops rotational strength in the neck and enhances visual tracking across horizontal planes."
+  },
+  {
+    "target_milestone_id": "ddifmd007",
+    "title": "The Cube Pass",
+    "materials": ["a small cube"],
+    "instructions": [
+      "Give your baby a small, soft cube to hold in one hand.",
+      "Encourage them to transfer the cube from one hand to the other, practicing the passing motion."
+    ],
+    "benefit": "Science Tip: Hand-to-hand transfer requires crossing the midline and bilateral coordination, strengthening neural connections between brain hemispheres."
+  },
+  {
+    "target_milestone_id": "ddifmd005",
+    "title": "Midline Meet-Up",
+    "materials": ["a soft ring toy"],
+    "instructions": [
+      "Place your baby on their back and hold a soft ring toy above their chest at midline.",
+      "Encourage them to bring both hands together in the center of their body to grasp and explore the toy."
+    ],
+    "benefit": "Science Tip: Midline play strengthens bilateral coordination and the corpus callosum, essential for later hand dominance and cross-body movements."
+  },
+  {
+    "target_milestone_id": "ddigmd059",
+    "title": "Swing and Stomp",
+    "materials": ["your hands"],
+    "instructions": [
+      "Hold your baby securely and gently swing them in a safe, supported position.",
+      "Watch as they flex and stomp their legs in response to the movement, showing active leg engagement."
+    ],
+    "benefit": "Science Tip: Leg flexing during motion develops vestibular processing and proprioceptive feedback, helping babies understand their body in space."
+  },
+  {
+    "target_milestone_id": "ddigmm067",
+    "title": "Cruising Explorer",
+    "materials": ["furniture"],
+    "instructions": [
+      "Stand your baby next to a low piece of furniture and place interesting objects along its edge.",
+      "Encourage them to hold onto the furniture and walk sideways (cruise) while moving toward the objects."
+    ],
+    "benefit": "Science Tip: Cruising develops lateral weight shifting and balance skills while building leg strength and coordination needed for independent walking."
+  },
+  {
+    "target_milestone_id": "ddigmd062",
+    "title": "Stretch Sit Practice",
+    "materials": ["a soft mat"],
+    "instructions": [
+      "Sit your baby on a soft mat with their legs stretched out straight in front of them.",
+      "Place toys within reach to encourage them to maintain this extended leg position while reaching."
+    ],
+    "benefit": "Science Tip: Extended leg sitting strengthens hip flexors and core muscles while improving balance by creating a wider base of support."
+  },
+  {
+    "target_milestone_id": "ddifmd008",
+    "title": "Dual Cube Master",
+    "materials": ["two small cubes"],
+    "instructions": [
+      "Give your baby one cube to hold firmly in one hand.",
+      "Then offer them a second cube and watch as they grasp it with their free hand while maintaining hold of the first."
+    ],
+    "benefit": "Science Tip: Holding multiple objects develops object permanence and enhances working memory as babies coordinate two separate motor plans simultaneously."
+  },
+  {
+    "target_milestone_id": "ddicmm033",
+    "title": "Babbling Conversation",
+    "materials": ["your voice"],
+    "instructions": [
+      "Sit face-to-face with your baby and make babbling sounds like 'ba-ba-ba' and 'da-da-da'.",
+      "Pause and wait for your baby to respond with their own sounds, then repeat and celebrate their attempts."
+    ],
+    "benefit": "Science Tip: Babbling practices the motor control needed for speech production while developing phonological awareness of different sound patterns."
+  },
+  {
+    "target_milestone_id": "ddicmm036",
+    "title": "Wave Bye-Bye",
+    "materials": ["your hands"],
+    "instructions": [
+      "Say 'bye-bye' while waving your hand and encourage your baby to watch and imitate.",
+      "Take their hand and gently help them wave while saying 'bye-bye' repeatedly until they try on their own."
+    ],
+    "benefit": "Science Tip: Gestural communication develops symbolic thinking and social understanding, bridging motor actions with meaningful communication."
+  },
+  {
+    "target_milestone_id": "ddigmm066",
+    "title": "Hands-and-Knees Crawler",
+    "materials": ["toys"],
+    "instructions": [
+      "Place your baby in a hands-and-knees crawling position on a soft surface.",
+      "Place toys just out of reach to encourage crawling forward with their abdomen lifted off the ground."
+    ],
+    "benefit": "Science Tip: Hands-and-knees crawling develops cross-lateral coordination, strengthening connections between brain hemispheres and preparing for walking."
+  },
+  {
+    "target_milestone_id": "ddigmd006",
+    "title": "Reach and Grab",
+    "materials": ["a soft cube"],
+    "instructions": [
+      "Sit your baby supported and hold an interesting soft cube just within their reach.",
+      "Encourage them to reach out and grasp the object, then let them hold and explore it independently."
+    ],
+    "benefit": "Science Tip: Reaching and grasping develops hand-eye coordination by connecting visual targeting with precise motor control of the arm and hand muscles."
+  },
+  {
+    "target_milestone_id": "ddicmm034",
+    "title": "Playtime Babble",
+    "materials": ["toys"],
+    "instructions": [
+      "Give your baby a toy and play together, making sounds and talking about what you're doing.",
+      "Respond enthusiastically to any sounds your baby makes while playing, encouraging more babbling."
+    ],
+    "benefit": "Science Tip: Babbling during play connects language development with motor exploration, helping babies understand that sounds are tools for communication."
+  },
+  {
+    "target_milestone_id": "ddifmd001",
+    "title": "Focus Finder",
+    "materials": ["a bright toy"],
+    "instructions": [
+      "Hold a bright, high-contrast toy about 12 inches from your baby's face.",
+      "Slowly move it side to side and watch as your baby's eyes fixate and track the object."
+    ],
+    "benefit": "Science Tip: Visual fixation strengthens the neural pathways in the occipital cortex, laying the foundation for visual attention and tracking skills."
+  },
+  {
+    "target_milestone_id": "ddifmm004",
+    "title": "Hand Discovery Zone",
+    "materials": ["your baby's hands"],
+    "instructions": [
+      "Lay your baby on their back and bring their hands into their line of sight near their face.",
+      "Let them watch and explore their own hands as they move them, discovering this fascinating new 'toy.'"
+    ],
+    "benefit": "Science Tip: Hand-watching develops body awareness and proprioception, helping babies understand cause-and-effect as they see their own movements create visual feedback."
+  },
+  {
+    "target_milestone_id": "ddigmd056",
+    "title": "Tummy Chin Lift",
+    "materials": ["a mirror"],
+    "instructions": [
+      "Place your baby on their tummy and position a mirror in front of them at eye level.",
+      "Encourage them to lift their chin off the surface to look at their reflection, even if just for a moment."
+    ],
+    "benefit": "Science Tip: Chin lifting strengthens neck and upper back extensors, building the foundation for head control and future crawling movements."
+  },
+  {
+    "target_milestone_id": "ddigmd057",
+    "title": "45-Degree Head Lift",
+    "materials": ["a favorite toy"],
+    "instructions": [
+      "Place your baby on their tummy and position an interesting toy slightly above and in front of them.",
+      "Encourage them to lift their head to about 45 degrees to see and reach toward the toy."
+    ],
+    "benefit": "Science Tip: Prone head lifting at 45 degrees strengthens posterior chain muscles and develops cervical extension, essential for visual exploration."
+  },
+  {
+    "target_milestone_id": "ddigmm064",
+    "title": "Belly Crawl Adventure",
+    "materials": ["a favorite toy"],
+    "instructions": [
+      "Place your baby on their tummy with a favorite toy placed just out of reach in front of them.",
+      "Encourage them to push with their arms and drag their body forward, moving their abdomen across the floor."
+    ],
+    "benefit": "Science Tip: Belly crawling develops upper body strength, coordination, and spatial navigation while preparing muscles for traditional crawling."
+  },
+  {
+    "target_milestone_id": "ddigmd068",
+    "title": "First Steps Adventure",
+    "materials": ["your hands"],
+    "instructions": [
+      "Hold your baby's hands and walk together, gradually releasing one hand for support.",
+      "Encourage them to take a few independent steps between you and a nearby piece of furniture."
+    ],
+    "benefit": "Science Tip: Independent walking requires complex coordination of balance, strength, and motor planning, representing a major milestone in neurological development."
+  },
+  {
+    "target_milestone_id": "ddifmd010",
+    "title": "Precision Pick-Up",
+    "materials": ["small soft objects"],
+    "instructions": [
+      "Place small, safe objects like soft pom-poms or cereal pieces on a flat surface in front of your seated baby.",
+      "Demonstrate using your thumb and index finger to pick them up, then encourage your baby to try the pincer grasp."
+    ],
+    "benefit": "Science Tip: The pincer grasp refines fine motor control by isolating finger movements, developing the precision needed for self-feeding and later writing skills."
+  },
+  {
+    "target_milestone_id": "ddifmd011",
+    "title": "In-and-Out Box Game",
+    "materials": ["a small box", "a cube"],
+    "instructions": [
+      "Show your baby how to put a cube into a small box.",
+      "Then encourage them to put the cube in and take it out repeatedly, exploring container concepts."
+    ],
+    "benefit": "Science Tip: Container play develops object permanence and spatial reasoning, teaching babies that objects exist even when they can't see them."
+  },
+  {
+    "target_milestone_id": "ddifmd013",
+    "title": "Two-Tower Challenge",
+    "materials": ["two soft cubes"],
+    "instructions": [
+      "Demonstrate stacking one cube on top of another to make a tower.",
+      "Encourage your baby to try building their own two-cube tower, practicing balance and hand control."
+    ],
+    "benefit": "Science Tip: Stacking develops hand-eye coordination and spatial planning, as babies must judge distance and alignment to successfully place objects."
+  },
+  {
+    "target_milestone_id": "ddicmm029",
+    "title": "Voice Recognition Game",
+    "materials": ["your voice"],
+    "instructions": [
+      "Stand behind or to the side of your baby and call their name or make familiar sounds.",
+      "Observe as they react by turning their head, stopping activity, or showing recognition to your voice."
+    ],
+    "benefit": "Science Tip: Voice recognition develops auditory processing and selective attention, helping babies distinguish important sounds from background noise."
+  }
+]

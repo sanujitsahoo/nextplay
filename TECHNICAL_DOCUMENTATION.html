@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPlay Recommender System - Technical Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .intuition {
+            background: linear-gradient(135deg, #f6f8ff 0%, #e8edff 100%);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .intuition h4 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .intuition::before {
+            content: "💡";
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .technical {
+            background: #f8f9fa;
+            border-left: 4px solid #764ba2;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .technical h4 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .algorithm-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .algorithm-box h4 {
+            color: #856404;
+            margin-bottom: 0.75rem;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NextPlay Baby Development Recommender System</h1>
+            <p>Technical Documentation & Architecture Guide</p>
+        </header>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#data-pipeline">Data Pipeline</a></li>
+                <li><a href="#mastery-age">Mastery Age</a></li>
+                <li><a href="#transition-matrix">Transition Matrix</a></li>
+                <li><a href="#recommendation-engine">Recommendation Engine</a></li>
+                <li><a href="#filtering">Filtering & Diversity</a></li>
+                <li><a href="#api">API Architecture</a></li>
+                <li><a href="#frontend">Frontend Integration</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>1. System Overview</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    NextPlay is a personalized recommendation system that helps parents engage their babies in age-appropriate developmental activities. 
+                    Just like Netflix recommends movies based on your viewing history, NextPlay recommends play activities based on your baby's developmental 
+                    milestones and age. The system learns from clinical data about when babies typically achieve different milestones and the natural 
+                    progression patterns between milestones.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Technical Architecture</h4>
+                <p>
+                    The system is built as a full-stack application with three core components:
+                </p>
+                <ul>
+                    <li><strong>Data Processing Pipeline</strong>: Extracts and cleans clinical milestone data from GSED (Global Scales for Early Development) datasets</li>
+                    <li><strong>Recommendation Engine</strong>: Python-based engine that calculates mastery ages, builds transition probabilities, and generates personalized recommendations</li>
+                    <li><strong>API & Frontend</strong>: FastAPI backend serving recommendations via REST API, consumed by a Next.js React frontend</li>
+                </ul>
+                
+                <p><strong>Data Flow:</strong></p>
+                <pre><code>Raw Clinical Data (.rda) 
+  → Processed CSV (milestones) 
+  → Mastery Ages (JSON) 
+  → Transition Matrix (JSON) 
+  → Recommendation Engine 
+  → API Endpoint 
+  → Frontend UI</code></pre>
+            </div>
+        </section>
+        
+        <!-- Data Pipeline Section -->
+        <section id="data-pipeline">
+            <h2>2. Data Pipeline & Preprocessing</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    Clinical research datasets contain raw observations about children's developmental progress over time. To make this data useful for 
+                    recommendations, we need to clean it, standardize it, and extract meaningful patterns. Think of it like preparing ingredients before 
+                    cooking—we need to wash, chop, and organize everything properly.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Data Loading & Cleaning</h4>
+                <p>
+                    The data pipeline (`setup_data.py`) performs the following transformations:
+                </p>
+                
+                <h5>Step 1: Loading Raw Data</h5>
+                <pre><code># Load RDA file using pyreadr
+import pyreadr
+result = pyreadr.read_r('data/gcdg_nld_smocc.rda')
+df = result[None]  # Extract the DataFrame</code></pre>
+                
+                <h5>Step 2: Column Filtering</h5>
+                <p>We keep only relevant columns:</p>
+                <ul>
+                    <li><code>subjid</code>: Unique child identifier</li>
+                    <li><code>agedays</code>: Age in days (to be converted to months)</li>
+                    <li><code>sex</code>: Child's sex (for potential future gender-specific recommendations)</li>
+                    <li><code>ddi*</code>: All milestone columns (Gross Motor, Fine Motor, Cognitive domains)</li>
+                </ul>
+                
+                <h5>Step 3: Age Conversion</h5>
+                <pre><code># Convert days to months using average month length
+df['age_months'] = df['agedays'] / 30.44</code></pre>
+                
+                <h5>Step 4: Missing Value Handling</h5>
+                <p>Clinical datasets use special codes:</p>
+                <ul>
+                    <li><code>-1</code>: Milestone not tested (imputed)</li>
+                    <li><code>0</code>: Milestone not achieved</li>
+                    <li><code>1</code>: Milestone achieved</li>
+                </ul>
+                <p>We preserve this encoding as it's essential for transition detection.</p>
+                
+                <h5>Step 5: Milestone Mapping</h5>
+                <p>
+                    Milestone codes (e.g., <code>ddigmd001</code>) are mapped to human-readable names by:
+                </p>
+                <ol>
+                    <li>Scanning documentation files (`.Rd` files) for definitions</li>
+                    <li>Using GSED schema patterns: <code>ddi[g|c|f]m[d|m]###</code>
+                        <ul>
+                            <li><code>g</code> = Gross Motor</li>
+                            <li><code>f</code> = Fine Motor</li>
+                            <li><code>c</code> = Cognitive</li>
+                            <li><code>d</code> = Dichotomous (0/1)</li>
+                            <li><code>m</code> = Multi-point scale</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Mastery Age Section -->
+        <section id="mastery-age">
+            <h2>3. Mastery Age Calculation</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    When do babies typically learn to sit up? When do they start crawling? The mastery age is the median age at which children 
+                    achieve a milestone. It's like finding the "average" age, but using the median (middle value) because it's more robust to 
+                    outliers. This gives us a baseline expectation: if a baby is past the mastery age for a milestone, we might want to prioritize 
+                    it as "foundational."
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Algorithm</h4>
+                <p>
+                    For each milestone, we identify when each child transitions from <code>0</code> (not achieved) to <code>1</code> (achieved):
+                </p>
+                
+                <div class="algorithm-box">
+                    <h4>Mastery Age Calculation Algorithm</h4>
+                    <ol>
+                        <li>For each child in the dataset:
+                            <ul>
+                                <li>Sort observations by age (chronologically)</li>
+                                <li>Filter out untested milestones (<code>-1</code>)</li>
+                                <li>Find the first occurrence where milestone transitions from <code>0</code> → <code>1</code></li>
+                                <li>Record the age (in months) at which this transition occurred</li>
+                            </ul>
+                        </li>
+                        <li>Collect all transition ages across all children</li>
+                        <li>Calculate the <strong>median</strong> of these transition ages</li>
+                        <li>This median becomes the <code>mastery_age</code> for the milestone</li>
+                    </ol>
+                </div>
+                
+                <pre><code>def calculate_mastery_age(df, milestone_col):
+    transitions = []
+    
+    for subjid in df['subjid'].unique():
+        child_data = df[df['subjid'] == subjid].sort_values('age_months')
+        
+        # Track values chronologically, ignoring -1
+        values_with_age = [
+            (row['age_months'], row[milestone_col])
+            for _, row in child_data.iterrows()
+            if row[milestone_col] != -1
+        ]
+        
+        # Look for transition from 0 to 1
+        for i in range(1, len(values_with_age)):
+            prev_age, prev_value = values_with_age[i-1]
+            current_age, current_value = values_with_age[i]
+            
+            if prev_value == 0 and current_value == 1:
+                transitions.append(current_age)
+                break  # Only count first transition
+    
+    if len(transitions) == 0:
+        return None
+    
+    mastery_age = np.median(transitions)
+    return mastery_age</code></pre>
+                
+                <p><strong>Why median instead of mean?</strong></p>
+                <ul>
+                    <li>More robust to outliers (some children may develop very early or very late)</li>
+                    <li>Represents the "typical" development pattern better</li>
+                    <li>Less sensitive to extreme values that might skew recommendations</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Transition Matrix Section -->
+        <section id="transition-matrix">
+            <h2>4. Transition Matrix: Sequential Learning Patterns</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    Babies don't learn milestones in isolation—they follow natural developmental sequences. For example, after learning to roll over, 
+                    babies often next learn to sit up, then crawl. The transition matrix captures these patterns by asking: "For children who have 
+                    mastered milestone X, what milestone do they most commonly master next?" This creates a probabilistic map of developmental 
+                    progression, similar to how Google's PageRank understands which pages link to which.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Transition Matrix Construction</h4>
+                <p>
+                    The transition matrix is a dictionary where each key is a milestone ID, and the value is a list of tuples: 
+                    <code>(next_milestone, probability)</code>
+                </p>
+                
+                <div class="algorithm-box">
+                    <h4>Transition Matrix Algorithm</h4>
+                    <ol>
+                        <li>For each child, identify all milestone transitions (0→1) and record the age at which each occurred</li>
+                        <li>Sort milestones by transition age (chronological order of mastery)</li>
+                        <li>For each milestone X that a child mastered:
+                            <ul>
+                                <li>Find the next milestone Y that the child mastered (earliest age > X's mastery age)</li>
+                                <li>Increment count: <code>transitions[X][Y] += 1</code></li>
+                            </ul>
+                        </li>
+                        <li>After processing all children, convert counts to probabilities:
+                            <ul>
+                                <li>For each milestone X: <code>probability(Y) = count(X→Y) / total_transitions_from_X</code></li>
+                                <li>Sort by probability (highest first)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <pre><code>def create_transition_matrix(df, milestone_cols):
+    transitions = defaultdict(lambda: defaultdict(int))
+    
+    for subjid in df['subjid'].unique():
+        child_data = df[df['subjid'] == subjid].sort_values('age_months')
+        milestone_first_mastered = {}
+        
+        # Identify when each milestone transitions to 1
+        for milestone in milestone_cols:
+            milestone_data = [
+                (row['age_months'], row[milestone])
+                for _, row in child_data.iterrows()
+                if row[milestone] != -1
+            ]
+            
+            # Find first 0→1 transition
+            for i in range(1, len(milestone_data)):
+                prev_age, prev_value = milestone_data[i-1]
+                current_age, current_value = milestone_data[i]
+                if prev_value == 0 and current_value == 1:
+                    milestone_first_mastered[milestone] = current_age
+                    break
+        
+        # Find next milestone after each milestone
+        mastered_list = sorted(milestone_first_mastered.items(), key=lambda x: x[1])
+        for i, (milestone_x, age_x) in enumerate(mastered_list):
+            next_milestone = None
+            next_age = float('inf')
+            for milestone_y, age_y in mastered_list:
+                if milestone_y != milestone_x and age_y > age_x and age_y < next_age:
+                    next_milestone = milestone_y
+                    next_age = age_y
+            
+            if next_milestone:
+                transitions[milestone_x][next_milestone] += 1
+    
+    # Convert to probabilities
+    transition_probs = {}
+    for milestone_x in milestone_cols:
+        if milestone_x not in transitions:
+            transition_probs[milestone_x] = []
+            continue
+        
+        next_milestones = transitions[milestone_x]
+        total_transitions = sum(next_milestones.values())
+        
+        prob_list = [
+            (milestone_y, count / total_transitions)
+            for milestone_y, count in next_milestones.items()
+        ]
+        prob_list.sort(key=lambda x: x[1], reverse=True)
+        transition_probs[milestone_x] = prob_list
+    
+    return transition_probs</code></pre>
+                
+                <p><strong>Example Output:</strong></p>
+                <pre><code>{
+  "ddigmd055": [
+    ["ddigmd061", 0.45],  # 45% of children master ddigmd061 next
+    ["ddigmd062", 0.32],  # 32% master ddigmd062 next
+    ["ddifmd005", 0.23]   # 23% master ddifmd005 next
+  ],
+  ...
+}</code></pre>
+            </div>
+        </section>
+        
+        <!-- Recommendation Engine Section -->
+        <section id="recommendation-engine">
+            <h2>5. Recommendation Engine Logic</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The recommendation engine is the "brain" of the system. It takes a user's completed milestones and their baby's age, then uses 
+                    the transition matrix to find the "frontier" of next likely milestones. It then categorizes these into three types: 
+                    <strong>Foundational</strong> (milestones the baby should have achieved by now), <strong>Likely</strong> (natural next steps), 
+                    and <strong>Challenge</strong> (advanced milestones for future development). This ensures parents get a balanced mix of 
+                    catch-up activities, age-appropriate activities, and future challenges—like a personalized curriculum.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Training vs. Production: Two Distinct Workflows</h4>
+                
+                <h5>Training Phase (One-Time Setup)</h5>
+                <p>
+                    The training phase uses raw clinical data (`.rda` files) to build the knowledge base that powers recommendations. This is done 
+                    once during initial setup and whenever the underlying dataset is updated.
+                </p>
+                <ol>
+                    <li><strong>Data Processing (`setup_data.py`)</strong>:
+                        <ul>
+                            <li>Loads raw `.rda` files from `training_data/data/`</li>
+                            <li>Converts to pandas DataFrame, filters columns (subjid, agedays, sex, ddi* milestones)</li>
+                            <li>Converts `agedays` to `age_months` and handles missing values</li>
+                            <li>Extracts milestone labels from `training_data/man/` documentation</li>
+                            <li><strong>Outputs</strong>: `models/processed_milestones.csv`, `models/milestone_map.json`</li>
+                        </ul>
+                    </li>
+                    <li><strong>Model Generation (`engine_logic.py`)</strong>:
+                        <ul>
+                            <li>Reads `models/processed_milestones.csv`</li>
+                            <li>Calculates <strong>Mastery Ages</strong>: For each milestone, finds the median age where babies transition from 0 (not achieved) to 1 (achieved)</li>
+                            <li>Builds <strong>Transition Matrix</strong>: For each milestone X, analyzes children who achieved X, then identifies which milestone Y they most commonly achieve next, with probabilities</li>
+                            <li><strong>Outputs</strong>: `models/mastery_ages.json`, `models/transition_matrix.json`</li>
+                        </ul>
+                    </li>
+                    <li><strong>Content Creation</strong>:
+                        <ul>
+                            <li>Manually create `models/activities.json` mapping milestones to play activities (title, materials, instructions, benefit)</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>Training Dependencies</strong>:
+                    <ul>
+                        <li>Requires `training_data/` folder with raw `.rda` files and documentation (`.Rd` files)</li>
+                        <li>Requires `pyreadr`, `pandas`, `numpy` for data processing</li>
+                        <li>Training scripts are not needed for production deployment</li>
+                    </ul>
+                </p>
+                
+                <h5>Production Phase (Runtime)</h5>
+                <p>
+                    The production phase uses the pre-computed models generated during training to serve real-time recommendations to users. 
+                    No raw data processing occurs during production—only fast lookups and calculations.
+                </p>
+                <ol>
+                    <li><strong>Server Startup (`main.py` startup event)</strong>:
+                        <ul>
+                            <li>Loads all JSON models from `models/` folder into memory:
+                                <ul>
+                                    <li>`models/mastery_ages.json` → mastery age lookups</li>
+                                    <li>`models/transition_matrix.json` → transition probabilities</li>
+                                    <li>`models/milestone_map.json` → human-readable milestone names</li>
+                                    <li>`models/activities.json` → play activity content</li>
+                                </ul>
+                            </li>
+                            <li>Loads `models/processed_milestones.csv` (only used for age-based recommendations for new users)</li>
+                            <li>All data stays in memory for fast access (no file I/O per request)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Recommendation Generation (`recommender.py`)</strong>:
+                        <ul>
+                            <li>Receives user request: `completed_milestone_ids`, `baby_age_months`</li>
+                            <li>Uses pre-loaded transition matrix to find "frontier" milestones (likely next steps)</li>
+                            <li>Uses pre-loaded mastery ages to categorize milestones (Foundational/Likely/Challenge)</li>
+                            <li>Applies filtering (exclude completed, ensure activity exists, domain diversity)</li>
+                            <li>Returns top 3 recommendations with scores and categories</li>
+                        </ul>
+                    </li>
+                    <li><strong>API Response (`main.py` endpoint)</strong>:
+                        <ul>
+                            <li>Enriches recommendations with activity details from `activities.json`</li>
+                            <li>For milestones without specific activities, generates generic activity content</li>
+                            <li>Returns JSON response to frontend</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>Production Dependencies</strong>:
+                    <ul>
+                        <li>Only requires `models/` folder with generated JSON/CSV files</li>
+                        <li>Does NOT require `training_data/` folder or training scripts</li>
+                        <li>Does NOT require `pyreadr` (only used during training)</li>
+                        <li>FastAPI server, `pandas` (minimal, only for CSV reading in fallback scenarios), `recommender.py` module</li>
+                    </ul>
+                </p>
+                
+                <h5>Separation of Concerns</h5>
+                <p>
+                    This two-phase approach provides several benefits:
+                </p>
+                <ul>
+                    <li><strong>Performance</strong>: Production recommendations are fast (milliseconds) because all heavy computation is pre-done</li>
+                    <li><strong>Deployment</strong>: Production servers don't need raw data files, reducing deployment size and complexity</li>
+                    <li><strong>Maintainability</strong>: Training scripts can be updated/versioned separately from production code</li>
+                    <li><strong>Scalability</strong>: Multiple production servers can share the same `models/` folder (via shared storage or Docker volumes)</li>
+                </ul>
+                
+                <h4>Core Recommendation Algorithm</h4>
+                
+                <h5>Step 1: Frontier Identification</h5>
+                <p>
+                    For existing users (with completed milestones), we aggregate transition probabilities:
+                </p>
+                <pre><code>frontier_scores = defaultdict(float)
+
+for completed_id in user_completed_ids:
+    if completed_id in transition_matrix:
+        for next_milestone, probability in transition_matrix[completed_id]:
+            if next_milestone not in user_completed_ids:
+                # Aggregate: take maximum probability from all completed milestones
+                frontier_scores[next_milestone] = max(
+                    frontier_scores[next_milestone], 
+                    probability
+                )</code></pre>
+                
+                <p>
+                    This creates a "frontier" of milestones that are likely next steps, weighted by how common they are as transitions from 
+                    the user's completed milestones.
+                </p>
+                
+                <h5>Step 2: Scoring & Categorization</h5>
+                <p>Each frontier milestone is scored and categorized:</p>
+                
+                <table>
+                    <tr>
+                        <th>Score Type</th>
+                        <th>Formula</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Transition Probability</strong></td>
+                        <td><code>P(milestone | completed)</code></td>
+                        <td>How likely this milestone is given completed milestones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discovery Score</strong></td>
+                        <td><code>1 - transition_probability</code></td>
+                        <td>Higher for rare/advanced milestones (for diversity)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urgency Score</strong></td>
+                        <td><code>min(max(0, baby_age - mastery_age), 12) / 12</code></td>
+                        <td>Higher if baby is past typical mastery age (0-1 scale)</td>
+                    </tr>
+                </table>
+                
+                <h5>Step 3: Category Assignment</h5>
+                <p>Milestones are categorized based on <code>age_difference = baby_age_months - mastery_age</code>:</p>
+                <ul>
+                    <li><strong>Foundational</strong>: <code>0 < age_difference ≤ 3.0</code> (past age, but not too far)</li>
+                    <li><strong>Likely</strong>: <code>-0.5 ≤ age_difference ≤ 0.5</code> (age-appropriate)</li>
+                    <li><strong>Challenge</strong>: <code>-3.0 ≤ age_difference < -0.5</code> (future, within 3 months)</li>
+                </ul>
+                
+                <h5>Step 4: Dynamic Weighting (Level Up Effect)</h5>
+                <p>
+                    For users with 5+ completed milestones, we increase the weight of discovery_score to surface more advanced milestones:
+                </p>
+                <pre><code>num_completed = len(user_completed_ids)
+discovery_weight = 0.4 if num_completed >= 5 else 0.2
+
+# Weighted score for Likely/Challenge categories
+weighted_score = transition_probability + (discovery_score * discovery_weight)</code></pre>
+                
+                <h5>Step 5: Selection Strategy</h5>
+                <p>
+                    We select one milestone from each category (if available) to ensure a balanced mix:
+                </p>
+                <ol>
+                    <li><strong>Foundational</strong>: Sort by <code>mastery_age</code> (descending) → pick most recent</li>
+                    <li><strong>Likely</strong>: Sort by <code>weighted_score</code> (descending) → pick highest</li>
+                    <li><strong>Challenge</strong>: Sort by <code>weighted_score</code> (descending), then <code>mastery_age</code> (ascending) → pick closest future</li>
+                </ol>
+                
+                <h5>Step 6: Domain Diversity Filter</h5>
+                <p>
+                    To ensure recommendations span different developmental domains, we prioritize milestones from unrepresented domains:
+                </p>
+                <pre><code>def get_milestone_domain(milestone_id: str) -> str:
+    if len(milestone_id) > 3:
+        domain_char = milestone_id[3].lower()
+        if domain_char == 'c': return 'cognitive'
+        elif domain_char == 'f': return 'fine_motor'
+        elif domain_char == 'g': return 'gross_motor'
+    return 'unknown'
+
+# During selection, track selected domains
+# If domain already represented, skip unless no alternatives</code></pre>
+            </div>
+        </section>
+        
+        <!-- Filtering Section -->
+        <section id="filtering">
+            <h2>6. Filtering & Quality Assurance</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    Not all milestones have associated play activities. We don't want to recommend milestones that parents can't act on. Additionally, 
+                    we want to ensure strict exclusion of completed milestones (never show the same milestone twice) and maintain diversity across 
+                    developmental domains (Gross Motor, Fine Motor, Cognitive) so parents get a well-rounded set of activities.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Filtering Layers</h4>
+                
+                <h5>1. Activity-Based Filtering</h5>
+                <p>
+                    Before any recommendation is returned, we filter to only include milestones that have corresponding entries in 
+                    <code>activities.json</code>:
+                </p>
+                <pre><code>available_milestone_ids = set(activities_map.keys())
+
+# Filter frontier scores
+frontier_scores = {
+    milestone_id: prob 
+    for milestone_id, prob in frontier_scores.items() 
+    if milestone_id in available_milestone_ids
+}</code></pre>
+                
+                <h5>2. Strict Exclusion Check</h5>
+                <p>
+                    Completed milestones are excluded at multiple checkpoints to ensure they never appear:
+                </p>
+                <pre><code>completed_set = set(user_completed_ids)
+
+# In frontier aggregation
+if next_milestone not in user_completed_ids:
+    frontier_scores[next_milestone] = max(...)
+
+# In final filtering
+recommendations = [
+    rec for rec in recommendations 
+    if rec['milestone_id'] not in completed_set
+]</code></pre>
+                
+                <h5>3. Domain Diversity Enforcement</h5>
+                <p>
+                    During selection, we track selected domains and prioritize diversity:
+                </p>
+                <pre><code>selected_domains = set()
+selected_ids = set()
+
+def add_milestone_with_diversity_check(milestone_list):
+    for milestone in milestone_list:
+        if milestone['milestone_id'] in selected_ids:
+            continue
+        
+        milestone_domain = milestone.get('domain', 'unknown')
+        
+        # If domain already represented, check for alternatives
+        if milestone_domain in selected_domains:
+            available_different_domains = [
+                m for m in milestone_list 
+                if m.get('domain') not in selected_domains
+            ]
+            if available_different_domains:
+                continue  # Skip, prefer different domain
+        
+        # Add milestone
+        recommendations.append(milestone)
+        selected_domains.add(milestone_domain)
+        selected_ids.add(milestone['milestone_id'])
+        return True
+    return False</code></pre>
+                
+                <h5>4. Age Range Validation</h5>
+                <p>
+                    Recommendations are bounded to ensure they're developmentally appropriate:
+                </p>
+                <ul>
+                    <li>Foundational: Within 3 months of baby's current age (not too far in the past)</li>
+                    <li>Challenge: Within 3 months in the future (not too advanced)</li>
+                    <li>Likely: Within ±0.5 months of current age (age-appropriate)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Age-Based Recommendations Section -->
+        <section>
+            <h2>7. New User Recommendations (Age-Based)</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    When a user first signs up, they haven't completed any milestones yet, so we can't use the transition matrix. Instead, we use 
+                    a simpler approach: find milestones where the mastery age is close to the baby's current age, and prioritize the most common 
+                    milestones (those observed most frequently in the dataset). This ensures every new user gets relevant recommendations from day one.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Age-Based Algorithm</h4>
+                
+                <h5>Step 1: Calculate Milestone Frequencies</h5>
+                <p>
+                    Count how many times each milestone appears in the dataset (non-missing observations):
+                </p>
+                <pre><code>def _calculate_milestone_frequencies(csv_file):
+    df = pd.read_csv(csv_file)
+    milestone_cols = get_milestone_columns(df)
+    
+    frequencies = {}
+    for col in milestone_cols:
+        count = (df[col] != -1).sum()  # Count non-missing
+        frequencies[col] = count
+    
+    return frequencies</code></pre>
+                
+                <h5>Step 2: Categorize by Age Difference</h5>
+                <p>
+                    Same categorization as main engine, but use frequency instead of transition probability:
+                </p>
+                <ul>
+                    <li><strong>Foundational</strong>: <code>0.5 < age_difference ≤ 3.0</code> (past age)</li>
+                    <li><strong>Likely</strong>: <code>|age_difference| ≤ 0.5</code> (age-appropriate)</li>
+                    <li><strong>Challenge</strong>: <code>-3.0 ≤ age_difference < -0.5</code> (future)</li>
+                </ul>
+                
+                <h5>Step 3: Sort by Frequency</h5>
+                <pre><code># Foundational: Sort by mastery_age (descending), then frequency
+foundational_milestones.sort(
+    key=lambda x: (x['mastery_age'], x['frequency']), 
+    reverse=True
+)
+
+# Likely: Sort by frequency (descending), then age difference
+likely_milestones.sort(
+    key=lambda x: (x['frequency'], -abs(x['age_difference'])), 
+    reverse=True
+)
+
+# Challenge: Sort by mastery_age (ascending - closest first), then frequency
+challenge_milestones.sort(
+    key=lambda x: (-x['mastery_age'], x['frequency']), 
+    reverse=True
+)</code></pre>
+                
+                <h5>Step 4: Select One from Each Category</h5>
+                <p>
+                    Apply the same domain diversity logic to ensure a balanced set of recommendations.
+                </p>
+            </div>
+        </section>
+        
+        <!-- API Architecture Section -->
+        <section id="api">
+            <h2>8. API Architecture</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The API acts as a bridge between the recommendation engine and the frontend. It pre-loads all the heavy data (mastery ages, 
+                    transition matrix, activities) when the server starts, so requests are fast. When a request comes in, it simply calls the 
+                    recommendation engine with the user's data, then enriches the results with activity details before sending them back.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>FastAPI Implementation</h4>
+                
+                <h5>Startup Event: Data Pre-loading</h5>
+                <p>
+                    All data files are loaded once when the server starts to avoid I/O overhead on every request:
+                </p>
+                <pre><code>@app.on_event("startup")
+async def load_data():
+    global mastery_ages, transition_matrix, activities_map, milestone_map
+    
+    BASE_DIR = Path(__file__).parent
+    
+    # Load mastery ages
+    mastery_ages_path = BASE_DIR / "mastery_ages.json"
+    with open(mastery_ages_path, 'r') as f:
+        mastery_ages = json.load(f)
+    
+    # Load transition matrix
+    transition_matrix_path = BASE_DIR / "transition_matrix.json"
+    with open(transition_matrix_path, 'r') as f:
+        transition_data = json.load(f)
+        # Convert to (milestone, probability) tuples
+        transition_matrix = {
+            milestone: [(item["milestone"], item["probability"]) 
+                       for item in transitions]
+            for milestone, transitions in transition_data.items()
+        }
+    
+    # Load activities
+    activities_path = BASE_DIR / "activities.json"
+    with open(activities_path, 'r') as f:
+        activities_list = json.load(f)
+        activities_map = {
+            activity["target_milestone_id"]: {
+                "title": activity["title"],
+                "materials": activity["materials"],
+                "instructions": activity["instructions"],
+                "benefit": activity["benefit"]
+            }
+            for activity in activities_list
+        }
+    
+    # Load milestone map
+    milestone_map_path = BASE_DIR / "milestone_map.json"
+    with open(milestone_map_path, 'r') as f:
+        milestone_map = json.load(f)</code></pre>
+                
+                <h5>Recommendation Endpoint</h5>
+                <pre><code>@app.post("/recommend", response_model=RecommendationResponse)
+async def get_recommendations(request: RecommendationRequest):
+    # Prepare available milestone IDs (for filtering)
+    available_milestone_ids = set(activities_map.keys())
+    
+    # Call recommendation engine with pre-loaded data
+    recommendations = engine_logic.get_recommendations(
+        user_completed_ids=request.completed_milestone_ids,
+        baby_age_months=request.baby_age_months,
+        csv_file=str(BASE_DIR / "processed_milestones.csv"),
+        transition_matrix_data=transition_matrix,
+        mastery_ages_data=mastery_ages,
+        milestone_map_data=milestone_map,
+        activities_data=available_milestone_ids
+    )
+    
+    # Enrich with activity data
+    enhanced_recommendations = []
+    for rec in recommendations:
+        activity = activities_map.get(rec["milestone_id"])
+        enhanced_rec = {**rec, "activity": activity}
+        enhanced_recommendations.append(enhanced_rec)
+    
+    return RecommendationResponse(recommendations=enhanced_recommendations)</code></pre>
+                
+                <h5>CORS Configuration</h5>
+                <p>
+                    Cross-Origin Resource Sharing is configured to allow frontend requests:
+                </p>
+                <pre><code>from fastapi.middleware.cors import CORSMiddleware
+
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["*"],
+)</code></pre>
+                
+                <h5>Error Handling</h5>
+                <p>
+                    Comprehensive error handling with detailed logging:
+                </p>
+                <pre><code>except FileNotFoundError as e:
+    raise HTTPException(status_code=503, detail=f"Data file not found: {e}")
+except ValueError as e:
+    raise HTTPException(status_code=400, detail=f"Invalid input: {e}")
+except Exception as e:
+    import traceback
+    error_trace = traceback.format_exc()
+    print(f"Error: {e}\nTraceback:\n{error_trace}")
+    raise HTTPException(status_code=500, detail=f"Internal server error: {e}")</code></pre>
+            </div>
+        </section>
+        
+        <!-- Frontend Integration Section -->
+        <section id="frontend">
+            <h2>9. Frontend Integration & User Experience</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The frontend creates an engaging, responsive interface that makes parents excited about their baby's development. The 
+                    continuous growth loop—where completing one activity immediately triggers a new recommendation—creates a sense of progress 
+                    and momentum. Visual feedback (confetti, animations) makes the experience delightful and rewarding.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>React/Next.js Implementation</h4>
+                
+                <h5>State Management</h5>
+                <p>
+                    The dashboard manages multiple pieces of state:
+                </p>
+                <ul>
+                    <li><code>recommendations</code>: Current list of 3 recommendation cards</li>
+                    <li><code>completedMilestones</code>: Set of completed milestone IDs (persisted in localStorage)</li>
+                    <li><code>journeyMilestones</code>: Full recommendation objects for the sidebar (completed activities)</li>
+                    <li><code>refillingSlots</code>: Set of milestone IDs currently being refilled (for loading skeletons)</li>
+                    <li><code>animatingMilestone</code>: ID of milestone currently animating to sidebar</li>
+                </ul>
+                
+                <h5>Continuous Growth Loop</h5>
+                <p>
+                    When a user clicks "I did this!" on a card:
+                </p>
+                <pre><code>const handleMilestoneComplete = async (milestone) => {
+    // 1. Set animating state
+    setAnimatingMilestone(milestone.milestone_id)
+    
+    // 2. Mark slot as refilling (shows skeleton)
+    setRefillingSlots(prev => new Set(prev).add(milestone.milestone_id))
+    
+    // 3. Remove from recommendations (triggers exit animation)
+    setRecommendations(prev => 
+        prev.filter(r => r.milestone_id !== milestone.milestone_id)
+    )
+    
+    // 4. Update completed milestones
+    const updated = [...completedMilestones, milestone.milestone_id]
+    setCompletedMilestones(updated)
+    localStorage.setItem('completedMilestones', JSON.stringify(updated))
+    
+    // 5. Add to journey (after animation delay)
+    setTimeout(() => {
+        setJourneyMilestones(prev => [...prev, milestone])
+    }, 100)
+    
+    // 6. Fetch new recommendation (after exit animation)
+    setTimeout(async () => {
+        const response = await fetch('/recommend', {
+            method: 'POST',
+            body: JSON.stringify({
+                baby_age_months: babyAge,
+                completed_milestone_ids: updated
+            })
+        })
+        
+        const data = await response.json()
+        const newRec = data.recommendations.find(r => 
+            !recommendations.some(existing => 
+                existing.milestone_id === r.milestone_id
+            )
+        )
+        
+        if (newRec) {
+            setRecommendations(prev => [...prev, newRec].slice(0, 3))
+        }
+        
+        setRefillingSlots(prev => {
+            const next = new Set(prev)
+            next.delete(milestone.milestone_id)
+            return next
+        })
+    }, 600)
+}</code></pre>
+                
+                <h5>Animation System</h5>
+                <p>
+                    Uses <code>framer-motion</code> for smooth transitions:
+                </p>
+                <ul>
+                    <li><strong>Exit Animation</strong>: Card flies to sidebar (translate + scale)</li>
+                    <li><strong>Enter Animation</strong>: New card slides in from bottom (opacity + translateY)</li>
+                    <li><strong>Confetti Burst</strong>: CSS particles burst from card center on completion</li>
+                </ul>
+                
+                <h5>LocalStorage Persistence</h5>
+                <p>
+                    User progress is persisted across sessions:
+                </p>
+                <pre><code>// Save
+localStorage.setItem('babyAge', babyAge.toString())
+localStorage.setItem('completedMilestones', JSON.stringify(completedMilestones))
+localStorage.setItem('journeyMilestones', JSON.stringify(journeyMilestones))
+localStorage.setItem('childName', childName)
+
+// Load on mount
+useEffect(() => {
+    const savedAge = localStorage.getItem('babyAge')
+    if (savedAge) setBabyAge(parseFloat(savedAge))
+    // ... load other items
+}, [])</code></pre>
+            </div>
+        </section>
+        
+        <!-- Additional Sections -->
+        <section>
+            <h2>10. Data Structures & File Formats</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The system uses JSON files to store processed data because they're human-readable, easy to version control, and fast to parse. 
+                    Each file serves a specific purpose in the recommendation pipeline.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>File Specifications</h4>
+                
+                <h5>processed_milestones.csv</h5>
+                <p>Columns: <code>subjid</code>, <code>age_months</code>, <code>sex</code>, <code>ddi*</code> (milestone columns)</p>
+                <p>Values: <code>-1</code> (untested), <code>0</code> (not achieved), <code>1</code> (achieved)</p>
+                
+                <h5>mastery_ages.json</h5>
+                <pre><code>{
+  "ddigmd055": 3.08,
+  "ddigmd061": 5.45,
+  "ddicmm030": 2.12,
+  ...
+}</code></pre>
+                
+                <h5>transition_matrix.json</h5>
+                <pre><code>{
+  "ddigmd055": [
+    {"milestone": "ddigmd061", "probability": 0.45},
+    {"milestone": "ddigmd062", "probability": 0.32},
+    ...
+  ],
+  ...
+}</code></pre>
+                
+                <h5>milestone_map.json</h5>
+                <pre><code>{
+  "ddigmd055": "No head lag if pulled to sitting",
+  "ddicmm030": "Smiles in response",
+  ...
+}</code></pre>
+                
+                <h5>activities.json</h5>
+                <pre><code>[
+  {
+    "target_milestone_id": "ddigmd055",
+    "title": "Sit Up Helper",
+    "materials": ["your hands"],
+    "instructions": [
+      "Lay your baby on their back...",
+      "Observe as they keep their head aligned..."
+    ],
+    "benefit": "Science Tip: Head control shows..."
+  },
+  ...
+]</code></pre>
+            </div>
+        </section>
+        
+        <section>
+            <h2>11. Performance Considerations</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    To make the system fast and responsive, we pre-compute expensive operations (mastery ages, transition matrix) and load them 
+                    into memory at server startup. This means recommendation requests are just lookups and simple calculations, not heavy data 
+                    processing.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Optimizations</h4>
+                
+                <ul>
+                    <li><strong>Pre-loading</strong>: All JSON files loaded once at startup (no file I/O per request)</li>
+                    <li><strong>Data Passing</strong>: Pre-loaded data passed directly to functions (avoids redundant JSON parsing)</li>
+                    <li><strong>Set Operations</strong>: Use Python sets for O(1) membership testing (exclusion checks)</li>
+                    <li><strong>Caching</strong>: Frontend caches recommendations until user completes a milestone</li>
+                    <li><strong>Lazy Loading</strong>: Only calculate milestone frequencies when needed (new users)</li>
+                </ul>
+                
+                <p><strong>Expected Performance:</strong></p>
+                <ul>
+                    <li>Recommendation generation: &lt;100ms</li>
+                    <li>API response time: &lt;200ms (including network)</li>
+                    <li>Frontend update: &lt;50ms (React state update)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>12. Future Enhancements</h2>
+            
+            <div class="technical">
+                <ul>
+                    <li><strong>Gender-Specific Recommendations</strong>: Leverage <code>sex</code> column for personalized suggestions</li>
+                    <li><strong>Multi-Milestone Sequencing</strong>: Recommend activity sequences (e.g., "Do X, then Y, then Z")</li>
+                    <li><strong>Seasonal Activities</strong>: Weather/location-based activity filtering</li>
+                    <li><strong>Progress Tracking</strong>: Analytics dashboard showing developmental trajectory</li>
+                    <li><strong>Machine Learning</strong>: Train models to predict next milestones more accurately</li>
+                    <li><strong>Real-time Updates</strong>: WebSocket updates for new recommendations</li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p>NextPlay Recommender System - Technical Documentation</p>
+            <p>Last Updated: 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
+

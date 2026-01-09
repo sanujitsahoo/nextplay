@@ -1,0 +1,2733 @@
+{
+  "ddicmm029": [],
+  "ddicmm030": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.3961
+    },
+    {
+      "milestone": "ddifmm004",
+      "probability": 0.173
+    },
+    {
+      "milestone": "ddicmm031",
+      "probability": 0.085
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.0774
+    },
+    {
+      "milestone": "ddifmd003",
+      "probability": 0.0774
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.0379
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0319
+    },
+    {
+      "milestone": "ddigmd057",
+      "probability": 0.0273
+    },
+    {
+      "milestone": "ddigmd054",
+      "probability": 0.0137
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0076
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0046
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0046
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0046
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddigmd059",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0015
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0015
+    }
+  ],
+  "ddicmm031": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.5625
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.1562
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.0833
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0312
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0312
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0312
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0312
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0208
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0208
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0208
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0104
+    }
+  ],
+  "ddicmm033": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3565
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2507
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0891
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0529
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0487
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0376
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0362
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0237
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0181
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0153
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0125
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0111
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0097
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.007
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0056
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0056
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0056
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0028
+    }
+  ],
+  "ddicmm034": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.4404
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.146
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0827
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0779
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0681
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0462
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0414
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0292
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0268
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0146
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0049
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0049
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0049
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0049
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0024
+    }
+  ],
+  "ddicmm036": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.422
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.1149
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0875
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0755
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0583
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0515
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0497
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0429
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0377
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0206
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0137
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0103
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0069
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0034
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0034
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0017
+    }
+  ],
+  "ddicmm037": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.2702
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2362
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.1638
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.1617
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0915
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0234
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0213
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0128
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0043
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0021
+    }
+  ],
+  "ddicmm039": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.7592
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0736
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0602
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0502
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0268
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0201
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.01
+    }
+  ],
+  "ddicmm041": [],
+  "ddicmm043": [],
+  "ddicmd044": [],
+  "ddicmd116": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.4967
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.1643
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0497
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0392
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0353
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0325
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0277
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.022
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0191
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0162
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0162
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0134
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0115
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0115
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0067
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0057
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0057
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0048
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0019
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0019
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0019
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0019
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.001
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.001
+    }
+  ],
+  "ddicmd136": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.4146
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2317
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.126
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.126
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0407
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0244
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0122
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0081
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0081
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0041
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0041
+    }
+  ],
+  "ddicmd141": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.6895
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.1209
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.085
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0556
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0196
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0196
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0098
+    }
+  ],
+  "ddicmd148": [],
+  "ddifmd001": [],
+  "ddifmd002": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.3918
+    },
+    {
+      "milestone": "ddifmm004",
+      "probability": 0.1754
+    },
+    {
+      "milestone": "ddicmm031",
+      "probability": 0.0806
+    },
+    {
+      "milestone": "ddifmd003",
+      "probability": 0.0707
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.0608
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.041
+    },
+    {
+      "milestone": "ddigmd057",
+      "probability": 0.0396
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0212
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0156
+    },
+    {
+      "milestone": "ddigmd054",
+      "probability": 0.0156
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0141
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0127
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0113
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0071
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0057
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0057
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0014
+    },
+    {
+      "milestone": "ddigmd059",
+      "probability": 0.0014
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0014
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0014
+    }
+  ],
+  "ddifmd003": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.6053
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.1118
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.0789
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0395
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0329
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0197
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0132
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0132
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0132
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0132
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmd059",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0066
+    }
+  ],
+  "ddifmm004": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.6141
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.0995
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.068
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0364
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0364
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0267
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0267
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0218
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0194
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0097
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0073
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0073
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0049
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddigmd059",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0024
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0024
+    }
+  ],
+  "ddifmd005": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.5101
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.1693
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0487
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0392
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0328
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0286
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0233
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0201
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0169
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0148
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0148
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0116
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0074
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0032
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0032
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0011
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0011
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0011
+    }
+  ],
+  "ddifmd007": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3412
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2547
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0943
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0597
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0456
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0456
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0362
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0236
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0173
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0173
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0142
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0094
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0094
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0094
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0031
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0016
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0016
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0016
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0016
+    }
+  ],
+  "ddifmd008": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3479
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2344
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.1077
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0553
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0539
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0408
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0378
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0262
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0175
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0175
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0131
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0102
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0087
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0058
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0058
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0044
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0029
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0015
+    }
+  ],
+  "ddifmm009": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3925
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2339
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0887
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0538
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.043
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.043
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0376
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0269
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0134
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0108
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0108
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0081
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0081
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0054
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0054
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0054
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0054
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0027
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0027
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0027
+    }
+  ],
+  "ddifmd010": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.3992
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.131
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0769
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0686
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0665
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0561
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0437
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0437
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0374
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0291
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0187
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0104
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0083
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0021
+    }
+  ],
+  "ddifmd011": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.3291
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2616
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.1603
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.1013
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0717
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0338
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0127
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0127
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0084
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0042
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0042
+    }
+  ],
+  "ddifmm012": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.3142
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2568
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.1284
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.1115
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0912
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0304
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.027
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0135
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0101
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0068
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0068
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0034
+    }
+  ],
+  "ddifmd013": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.6982
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.1176
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0691
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0665
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.023
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0179
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0077
+    }
+  ],
+  "ddifmm014": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.5818
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.1273
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.1273
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0727
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0364
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0364
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0182
+    }
+  ],
+  "ddifmd015": [],
+  "ddifmm016": [],
+  "ddifmd017": [],
+  "ddifmd018": [],
+  "ddifmm019": [],
+  "ddifmd154": [],
+  "ddigmd006": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.4873
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.1668
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0579
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0386
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0342
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0307
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0272
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0211
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0202
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0176
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0149
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0123
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0114
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0088
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.007
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.007
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0061
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0026
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0026
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0018
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0018
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0018
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0009
+    }
+  ],
+  "ddigmd052": [],
+  "ddigmd053": [],
+  "ddigmd054": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.5409
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.1572
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.0692
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0566
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.0503
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.0189
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0189
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0126
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0126
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0126
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddigmd059",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0063
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0063
+    }
+  ],
+  "ddigmd055": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.4843
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.1804
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0559
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0373
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0314
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0279
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0244
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0198
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0198
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.014
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0128
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0128
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0128
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0116
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0081
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.007
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0047
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0047
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0047
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0047
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0047
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0035
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0023
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0023
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0012
+    }
+  ],
+  "ddigmd056": [],
+  "ddigmd057": [
+    {
+      "milestone": "ddicmd116",
+      "probability": 0.616
+    },
+    {
+      "milestone": "ddifmd005",
+      "probability": 0.1065
+    },
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.0798
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.0304
+    },
+    {
+      "milestone": "ddigmd006",
+      "probability": 0.0266
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0228
+    },
+    {
+      "milestone": "ddigmd058",
+      "probability": 0.019
+    },
+    {
+      "milestone": "ddigmd055",
+      "probability": 0.019
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0152
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0114
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0114
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0076
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0076
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0038
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0038
+    }
+  ],
+  "ddigmd058": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.4917
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.168
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0477
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0363
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0322
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0311
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.029
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0228
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0218
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0166
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0145
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0135
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0114
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0114
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0083
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0073
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0062
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0052
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0041
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0041
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0031
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0031
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0031
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0021
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.001
+    }
+  ],
+  "ddigmd059": [
+    {
+      "milestone": "ddicmm033",
+      "probability": 0.4927
+    },
+    {
+      "milestone": "ddifmd007",
+      "probability": 0.1713
+    },
+    {
+      "milestone": "ddifmd008",
+      "probability": 0.0438
+    },
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.0398
+    },
+    {
+      "milestone": "ddifmm009",
+      "probability": 0.0332
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.0305
+    },
+    {
+      "milestone": "ddigmm060",
+      "probability": 0.0252
+    },
+    {
+      "milestone": "ddigmd061",
+      "probability": 0.0226
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0212
+    },
+    {
+      "milestone": "ddigmd062",
+      "probability": 0.0212
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0173
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0133
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.012
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0106
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0053
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.004
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.004
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.004
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0027
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0027
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0027
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0013
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0013
+    }
+  ],
+  "ddigmm060": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3126
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.257
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0857
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0685
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0642
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0535
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0343
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0257
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.015
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0128
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0107
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0107
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0086
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0086
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0064
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0064
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0064
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0043
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0043
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0043
+    }
+  ],
+  "ddigmd061": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.4048
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2326
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.0816
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0483
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.0453
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0423
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0363
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0181
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0151
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0151
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0121
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0091
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0091
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.006
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.006
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.006
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.003
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.003
+    }
+  ],
+  "ddigmd062": [
+    {
+      "milestone": "ddicmm034",
+      "probability": 0.3517
+    },
+    {
+      "milestone": "ddicmm036",
+      "probability": 0.2259
+    },
+    {
+      "milestone": "ddifmd010",
+      "probability": 0.1081
+    },
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.053
+    },
+    {
+      "milestone": "ddigmm064",
+      "probability": 0.0452
+    },
+    {
+      "milestone": "ddigmm065",
+      "probability": 0.0432
+    },
+    {
+      "milestone": "ddigmd063",
+      "probability": 0.0373
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0255
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0216
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0196
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0157
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0138
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0079
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0079
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0059
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0059
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0039
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.0039
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.002
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.002
+    }
+  ],
+  "ddigmd063": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.4202
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.1368
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0814
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0717
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0586
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0586
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0423
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0326
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0293
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0261
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0195
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0065
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0033
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0033
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0033
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0033
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0033
+    }
+  ],
+  "ddigmm064": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.3898
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.1299
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.065
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0621
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0621
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0593
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0537
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0537
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.0452
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0339
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0282
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0056
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0056
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0028
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0028
+    }
+  ],
+  "ddigmm065": [
+    {
+      "milestone": "ddicmm037",
+      "probability": 0.394
+    },
+    {
+      "milestone": "ddicmd136",
+      "probability": 0.1109
+    },
+    {
+      "milestone": "ddifmd011",
+      "probability": 0.0712
+    },
+    {
+      "milestone": "ddifmm012",
+      "probability": 0.0662
+    },
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.0646
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.0613
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.0497
+    },
+    {
+      "milestone": "ddigmm066",
+      "probability": 0.0447
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.043
+    },
+    {
+      "milestone": "ddigmm067",
+      "probability": 0.0348
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.0281
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0116
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0066
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0033
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0017
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0017
+    }
+  ],
+  "ddigmm066": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.329
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2581
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.1419
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.1161
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.1032
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0194
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0194
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0065
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.0065
+    }
+  ],
+  "ddigmm067": [
+    {
+      "milestone": "ddicmm039",
+      "probability": 0.3048
+    },
+    {
+      "milestone": "ddicmd141",
+      "probability": 0.2086
+    },
+    {
+      "milestone": "ddigmd068",
+      "probability": 0.1979
+    },
+    {
+      "milestone": "ddifmd013",
+      "probability": 0.1337
+    },
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.1123
+    },
+    {
+      "milestone": "ddifmm014",
+      "probability": 0.016
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0107
+    },
+    {
+      "milestone": "ddigmd069",
+      "probability": 0.0107
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0053
+    }
+  ],
+  "ddigmd068": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.6259
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.1119
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0944
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0839
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0385
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.028
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0175
+    }
+  ],
+  "ddigmd069": [
+    {
+      "milestone": "ddicmm041",
+      "probability": 0.7082
+    },
+    {
+      "milestone": "ddifmd015",
+      "probability": 0.0895
+    },
+    {
+      "milestone": "ddicmd148",
+      "probability": 0.0856
+    },
+    {
+      "milestone": "ddigmd146",
+      "probability": 0.0739
+    },
+    {
+      "milestone": "ddigmd168",
+      "probability": 0.0195
+    },
+    {
+      "milestone": "ddifmm016",
+      "probability": 0.0156
+    },
+    {
+      "milestone": "ddigmd070",
+      "probability": 0.0078
+    }
+  ],
+  "ddigmd070": [],
+  "ddigmd071": [],
+  "ddigmd146": [],
+  "ddigmd168": []
+}

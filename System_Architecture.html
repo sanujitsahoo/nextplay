@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPlay - System Architecture Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        section h4 {
+            color: #5a67d8;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .intuition {
+            background: linear-gradient(135deg, #f6f8ff 0%, #e8edff 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .intuition h4 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .technical {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .technical h4 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+        
+        .diagram {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .data-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .flow-step {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+        }
+        
+        .flow-step strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .component-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .component-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .component-card ul {
+            margin-top: 0.75rem;
+            padding-left: 1.5rem;
+        }
+        
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        .highlight {
+            background: #fff5b1;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NextPlay System Architecture</h1>
+            <p>End-to-End Overview: From Raw Data to Personalized Recommendations</p>
+        </header>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">System Overview</a></li>
+                <li><a href="#architecture">Architecture Layers</a></li>
+                <li><a href="#data-pipeline">Data Pipeline</a></li>
+                <li><a href="#user-journey">User Journey</a></li>
+                <li><a href="#components">Component Details</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#scalability">Scalability & Future</a></li>
+            </ul>
+        </nav>
+        
+        <!-- System Overview Section -->
+        <section id="overview">
+            <h2>1. System Overview</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    NextPlay is a personalized baby development recommendation system that transforms clinical milestone data into actionable play activities. 
+                    Think of it as a "Netflix for baby development": just as Netflix recommends movies based on your viewing history, NextPlay recommends 
+                    developmental activities based on what your baby has already achieved and their current age. The system uses data from thousands of 
+                    children's developmental trajectories to predict what milestones are likely next, ensuring parents always have age-appropriate, 
+                    personalized activities to support their baby's growth.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>High-Level Architecture</h4>
+                <p>
+                    NextPlay is built as a <strong>three-tier architecture</strong>:
+                </p>
+                <ol>
+                    <li><strong>Data Layer</strong>: Raw clinical milestone data (`.rda` files) and processed models (JSON/CSV files)</li>
+                    <li><strong>Backend Layer</strong>: FastAPI server that houses the recommendation engine and natural language processing</li>
+                    <li><strong>Frontend Layer</strong>: Next.js web application providing the user interface</li>
+                </ol>
+                
+                <div class="diagram">
+<pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                         USER (Parent)                            │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    FRONTEND LAYER (Next.js)                      │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌───────────────┐ │
+│  │ Landing Page     │  │ Dashboard        │  │ Journey       │ │
+│  │ (User Intake)    │  │ (Recommendations)│  │ Sidebar       │ │
+│  └──────────────────┘  └──────────────────┘  └───────────────┘ │
+└────────────────────────────┬────────────────────────────────────┘
+                             │ HTTP/REST API
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   BACKEND LAYER (FastAPI)                        │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌───────────────┐ │
+│  │ Intake           │  │ Recommendation   │  │ Data          │ │
+│  │ Specialist       │  │ Engine           │  │ Loader        │ │
+│  │ (OpenAI)         │  │ (Transition      │  │ (Startup)     │ │
+│  │                  │  │  Matrix)         │  │               │ │
+│  └──────────────────┘  └──────────────────┘  └───────────────┘ │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       DATA LAYER                                 │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌───────────────┐ │
+│  │ Training Data    │  │ Generated Models │  │ Activities    │ │
+│  │ (.rda files)     │  │ (JSON/CSV)       │  │ (JSON)        │ │
+│  │ (One-time setup) │  │ (Production)     │  │               │ │
+│  └──────────────────┘  └──────────────────┘  └───────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+</pre>
+                </div>
+                
+                <h4>Key Design Principles</h4>
+                <ul>
+                    <li><strong>Separation of Concerns</strong>: Training (data processing) is completely separate from production (recommendation serving)</li>
+                    <li><strong>Pre-computation</strong>: Heavy calculations (mastery ages, transition probabilities) are done once during training, not per request</li>
+                    <li><strong>Modularity</strong>: Each component (intake, recommendation, API) is independently testable and maintainable</li>
+                    <li><strong>Scalability</strong>: Stateless API design allows horizontal scaling; data models can be shared across instances</li>
+                    <li><strong>User Experience</strong>: Real-time updates, smooth animations, persistent state (localStorage) create an engaging experience</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Architecture Layers Section -->
+        <section id="architecture">
+            <h2>2. Architecture Layers</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The system is organized into distinct layers, each with a specific responsibility. The frontend handles user interaction and presentation, 
+                    the backend processes requests and generates recommendations, and the data layer stores both raw training data (used once) and processed 
+                    models (used continuously). This separation ensures that changes to one layer don't break others, and allows each layer to be optimized 
+                    independently.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Frontend Layer (Next.js 15)</h4>
+                <div class="component-card">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li><strong>Next.js 15</strong>: React framework with App Router</li>
+                        <li><strong>TypeScript</strong>: Type-safe JavaScript</li>
+                        <li><strong>Tailwind CSS</strong>: Utility-first styling</li>
+                        <li><strong>Framer Motion</strong>: Animation library</li>
+                        <li><strong>localStorage</strong>: Client-side persistence</li>
+                    </ul>
+                </div>
+                
+                <h4>Backend Layer (FastAPI)</h4>
+                <div class="component-card">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li><strong>FastAPI</strong>: High-performance Python web framework</li>
+                        <li><strong>Pydantic</strong>: Data validation and serialization</li>
+                        <li><strong>OpenAI API</strong>: Natural language processing (Intake Specialist)</li>
+                        <li><strong>Pandas</strong>: Data manipulation (minimal use in production)</li>
+                        <li><strong>Uvicorn</strong>: ASGI server</li>
+                    </ul>
+                </div>
+                
+                <h4>Data Layer</h4>
+                <div class="component-card">
+                    <h4>Files & Directories</h4>
+                    <ul>
+                        <li><strong>training_data/</strong>: Raw `.rda` files and documentation (excluded from production)</li>
+                        <li><strong>models/</strong>: Generated JSON/CSV files (mastery ages, transition matrix, activities, milestone map)</li>
+                        <li><strong>.env</strong>: Environment variables (OpenAI API key)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Data Pipeline Section -->
+        <section id="data-pipeline">
+            <h2>3. Data Pipeline: Training to Production</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    The data pipeline transforms raw clinical observations into actionable knowledge. Think of it like a factory: raw materials (clinical data) 
+                    go through processing (statistical analysis), quality control (filtering and validation), and packaging (JSON models), resulting in a 
+                    product (recommendation engine) that can be deployed to serve users. The key insight is that this "factory" runs only once (or when 
+                    data is updated), and the "product" (models) is what gets shipped to production.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Training Phase (One-Time Setup)</h4>
+                <div class="data-flow">
+                    <div class="flow-step">
+                        <strong>Step 1: Data Loading (`setup_data.py`)</strong>
+                        <p>Load raw `.rda` files using `pyreadr`. Extract columns: `subjid`, `agedays`, `sex`, and all `ddi*` milestone columns. 
+                        Convert `agedays` to `age_months` (divide by 30.44). Fill missing values with `-1` (untested).</p>
+                        <p><strong>Output:</strong> `models/processed_milestones.csv`</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <strong>Step 2: Milestone Labeling (`setup_data.py`)</strong>
+                        <p>Parse documentation files (`.Rd`) in `training_data/man/` to extract human-readable milestone names. Use regex patterns 
+                        to identify milestone IDs (e.g., `ddigmd055`) and their descriptions. For any missing labels, infer from GSED schema.</p>
+                        <p><strong>Output:</strong> `models/milestone_map.json` (maps milestone IDs to human-readable names)</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <strong>Step 3: Mastery Age Calculation (`engine_logic.py`)</strong>
+                        <p>For each milestone, identify all transitions from `0` (not achieved) to `1` (achieved) across all children. Calculate the 
+                        <strong>median age</strong> at which these transitions occur. This represents the "typical" age when children master the milestone.</p>
+                        <p><strong>Output:</strong> `models/mastery_ages.json` (maps milestone IDs to median mastery ages in months)</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <strong>Step 4: Transition Matrix Building (`engine_logic.py`)</strong>
+                        <p>For each milestone X, identify all children who achieved X. Then, for each child, find the <strong>next milestone Y</strong> 
+                        they achieved after X. Calculate the probability that Y follows X by counting how often Y appears as the next milestone. 
+                        Sort transitions by probability (highest first).</p>
+                        <p><strong>Output:</strong> `models/transition_matrix.json` (maps milestone X to list of [Y, probability] pairs)</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <strong>Step 5: Activity Creation (Manual/Curated)</strong>
+                        <p>Create `models/activities.json` mapping milestone IDs to play activities. Each activity includes: title, materials (1-2 household items), 
+                        instructions (2 simple steps), and a benefit (science tip explaining why the activity helps).</p>
+                        <p><strong>Output:</strong> `models/activities.json`</p>
+                    </div>
+                </div>
+                
+                <h4>Production Phase (Runtime)</h4>
+                <div class="data-flow">
+                    <div class="flow-step">
+                        <strong>Server Startup (`main.py` startup event)</strong>
+                        <p>When the FastAPI server starts, load all JSON/CSV files from `models/` into memory as global variables. This happens once, 
+                        avoiding file I/O on every request. If any file is missing, log a warning but allow the server to start (with degraded functionality).</p>
+                        <p><strong>Loaded:</strong> `mastery_ages`, `transition_matrix`, `milestone_map`, `activities_map`</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <strong>Recommendation Request (`recommender.py`)</strong>
+                        <p>When a user requests recommendations, the system uses the pre-loaded data to:</p>
+                        <ol>
+                            <li>Find "frontier" milestones (likely next steps from transition matrix)</li>
+                            <li>Categorize by age difference (Foundational/Likely/Challenge)</li>
+                            <li>Filter out completed milestones and ensure activity exists</li>
+                            <li>Apply diversity filter (ensure different developmental domains)</li>
+                            <li>Return top 3 recommendations</li>
+                        </ol>
+                        <p><strong>No file I/O occurs</strong> during this process—all operations use in-memory data structures.</p>
+                    </div>
+                </div>
+                
+                <h4>Key Insight: Training vs. Production Separation</h4>
+                <p>
+                    The training phase requires:
+                </p>
+                <ul>
+                    <li>Raw data files (`.rda`), documentation (`.Rd`), `pyreadr`, `pandas`, `numpy`</li>
+                    <li>Significant computation time (minutes to process thousands of observations)</li>
+                    <li>Only runs when data is updated or models need regeneration</li>
+                </ul>
+                <p>
+                    The production phase requires:
+                </p>
+                <ul>
+                    <li>Only the generated `models/` folder with JSON/CSV files</li>
+                    <li>FastAPI, minimal `pandas` (only for CSV reading in fallback scenarios), `recommender.py`</li>
+                    <li>Fast response times (milliseconds per request) due to pre-computed models</li>
+                </ul>
+                <p>
+                    This separation means production servers don't need training data or training scripts, reducing deployment size and complexity.
+                </p>
+            </div>
+        </section>
+        
+        <!-- User Journey Section -->
+        <section id="user-journey">
+            <h2>4. End-to-End User Journey</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    A parent's journey through NextPlay is designed to be seamless and delightful. They start by describing their baby naturally (like 
+                    talking to a friend), the system intelligently extracts structured information, and then continuously provides personalized, 
+                    actionable recommendations that evolve as their baby grows. Each interaction (completing an activity) immediately triggers a new 
+                    recommendation, creating a sense of continuous progress and engagement.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>User Flow Diagram</h4>
+                <div class="diagram">
+<pre>
+USER ENTERS LANDING PAGE
+         │
+         ▼
+┌────────────────────────────────────────┐
+│  Landing Page (app/page.tsx)           │
+│  - Numeric age input (required)        │
+│  - Story textarea (optional)           │
+│  - "Let's Play" button                 │
+└────────────┬───────────────────────────┘
+             │
+             │ User submits form
+             ▼
+┌────────────────────────────────────────┐
+│  POST /intake                          │
+│  Request: { story: string }            │
+│                                         │
+│  Backend: IntakeSpecialist             │
+│  - Uses OpenAI API to parse story      │
+│  - Extracts: child_name, age_months,   │
+│    completed_milestone_ids             │
+│                                         │
+│  Response: {                           │
+│    child_name: "Emma",                 │
+│    age_months: 6.0,                    │
+│    completed_milestone_ids: [...],     │
+│    needs_clarification: false          │
+│  }                                     │
+└────────────┬───────────────────────────┘
+             │
+             │ Store in localStorage
+             │ (babyAge, completedMilestones,
+             │  childName)
+             ▼
+┌────────────────────────────────────────┐
+│  Dashboard Page (app/dashboard/page.tsx)│
+│                                         │
+│  On Mount:                             │
+│  - Load from localStorage              │
+│  - POST /recommend                     │
+│    Request: {                          │
+│      baby_age_months: 6.0,             │
+│      completed_milestone_ids: [...]    │
+│    }                                   │
+└────────────┬───────────────────────────┘
+             │
+             │ Backend: recommender.py
+             │ - Uses transition matrix
+             │ - Categorizes milestones
+             │ - Filters & ranks
+             │ - Returns top 3
+             │
+             │ Response: {
+             │   recommendations: [
+             │     {
+             │       milestone_id: "...",
+             │       category: "likely",
+             │       activity: {...}
+             │     },
+             │     ...
+             │   ]
+             │ }
+             ▼
+┌────────────────────────────────────────┐
+│  Display Recommendations               │
+│  - 3 PlayCard components               │
+│  - Each shows: category badge,         │
+│    milestone name, activity details,   │
+│    "I did this!" button                │
+└────────────┬───────────────────────────┘
+             │
+             │ User clicks "I did this!"
+             ▼
+┌────────────────────────────────────────┐
+│  handleMilestoneComplete()             │
+│  1. Disable button, show "Awesome!"    │
+│  2. Trigger confetti animation         │
+│  3. Add to completedMilestones         │
+│  4. Update localStorage                │
+│  5. Animate card flying to sidebar     │
+│  6. Show skeleton in empty slot        │
+│  7. POST /recommend (with updated      │
+│     completedMilestones)               │
+│  8. New recommendation slides in       │
+└────────────┬───────────────────────────┘
+             │
+             │ Loop continues...
+             ▼
+         [Continuous Growth Loop]
+</pre>
+                </div>
+                
+                <h4>Key User Interactions</h4>
+                <table>
+                    <tr>
+                        <th>Interaction</th>
+                        <th>Frontend Action</th>
+                        <th>Backend Action</th>
+                        <th>State Update</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Landing Page Submit</strong></td>
+                        <td>POST `/intake` with story text</td>
+                        <td>IntakeSpecialist extracts milestones via OpenAI</td>
+                        <td>Store in localStorage, redirect to dashboard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dashboard Load</strong></td>
+                        <td>POST `/recommend` with age and completed milestones</td>
+                        <td>Recommender generates top 3 recommendations</td>
+                        <td>Display 3 PlayCard components</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"I did this!" Click</strong></td>
+                        <td>Add milestone to completed, animate card to sidebar</td>
+                        <td>POST `/recommend` with updated completed list</td>
+                        <td>Replace completed card with new recommendation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clear All</strong></td>
+                        <td>Clear localStorage, reset state</td>
+                        <td>None (frontend-only action)</td>
+                        <td>Reset to initial state</td>
+                    </tr>
+                </table>
+                
+                <h4>State Persistence Strategy</h4>
+                <p>
+                    The frontend uses <code>localStorage</code> to persist user data across sessions:
+                </p>
+                <ul>
+                    <li><strong>`babyAge`</strong>: Numeric age in months (from landing page or header input)</li>
+                    <li><strong>`completedMilestones`</strong>: Array of milestone IDs (grows as user completes activities)</li>
+                    <li><strong>`journeyMilestones`</strong>: Full recommendation objects for sidebar display (visual history)</li>
+                    <li><strong>`childName`</strong>: Extracted name from intake (optional, for personalization)</li>
+                </ul>
+                <p>
+                    This ensures that if a user refreshes the page or returns later, their progress is maintained. The backend is stateless—it doesn't 
+                    store user data, which simplifies scaling but requires the frontend to send complete state with each request.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Component Details Section -->
+        <section id="components">
+            <h2>5. Component Details</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    Each component in NextPlay has a specific role and communicates with others through well-defined interfaces. The Intake Specialist 
+                    understands natural language, the Recommendation Engine predicts next milestones, the API coordinates between frontend and backend, 
+                    and the frontend components create an engaging user experience. Understanding how each piece works and how they fit together is key 
+                    to maintaining and extending the system.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Backend Components</h4>
+                
+                <h4>1. Intake Specialist (`intake_specialist.py`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Extract structured developmental data from natural language parent descriptions.</p>
+                    <p><strong>Technology:</strong> OpenAI GPT-4o-mini with structured JSON response format.</p>
+                    <p><strong>Input:</strong> Natural language string (e.g., "My baby Emma is 6 months old and can sit up and smile.")</p>
+                    <p><strong>Output:</strong> Structured JSON with:
+                        <ul>
+                            <li>`child_name`: Extracted name or null</li>
+                            <li>`age_months`: Numeric age (0-48) or null</li>
+                            <li>`completed_milestone_ids`: Array of GSED milestone codes</li>
+                            <li>`needs_clarification`: Boolean flag</li>
+                            <li>`follow_up_question`: String if clarification needed</li>
+                        </ul>
+                    </p>
+                    <p><strong>Key Features:</strong>
+                        <ul>
+                            <li>Uses milestone_map.json as reference for extraction</li>
+                            <li>Only extracts milestones with 80%+ certainty (avoids false positives)</li>
+                            <li>Handles ambiguous ages gracefully (returns null, triggers clarification)</li>
+                            <li>Error handling: Returns 503 if OpenAI API unavailable, allows graceful fallback</li>
+                        </ul>
+                    </p>
+                </div>
+                
+                <h4>2. Recommendation Engine (`recommender.py`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Generate personalized milestone recommendations based on completed milestones and baby age.</p>
+                    <p><strong>Core Algorithm:</strong></p>
+                    <ol>
+                        <li><strong>Frontier Identification:</strong> Aggregate transition probabilities from completed milestones to find likely next steps.</li>
+                        <li><strong>Categorization:</strong> Sort milestones into Foundational (past age), Likely (age-appropriate), Challenge (future).</li>
+                        <li><strong>Scoring:</strong> Combine transition probability, discovery score (for diversity), and foundation score (for urgency).</li>
+                        <li><strong>Selection:</strong> Pick one from each category (if available) to ensure balanced mix.</li>
+                        <li><strong>Filtering:</strong> Exclude completed milestones, ensure activity exists, enforce domain diversity.</li>
+                        <li><strong>Fallback:</strong> If transition-based recommendations exhausted, use age-based recommendations with progressive age bounds.</li>
+                    </ol>
+                    <p><strong>Key Features:</strong>
+                        <ul>
+                            <li>Dynamic weighting: Increases discovery score weight for experienced users (5+ completed milestones)</li>
+                            <li>Domain diversity: Ensures recommendations span Gross Motor, Fine Motor, and Cognitive domains</li>
+                            <li>Proficiency detection: For babies who've completed age-appropriate milestones, restricts to milestones at/above current age</li>
+                            <li>Progressive fallback: Gradually relaxes age bounds, eventually uses all milestones (even without specific activities) if needed</li>
+                        </ul>
+                    </p>
+                </div>
+                
+                <h4>3. Data Processing (`engine_logic.py`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Process raw milestone data to generate mastery ages and transition matrix (training phase only).</p>
+                    <p><strong>Key Functions:</strong></p>
+                    <ul>
+                        <li><code>calculate_mastery_ages()</code>: Computes median age for 0→1 transitions per milestone</li>
+                        <li><code>build_transition_matrix()</code>: Analyzes sequential milestone achievements to build probability matrix</li>
+                        <li><code>load_mastery_ages()</code>, <code>load_transition_matrix()</code>, <code>load_milestone_map()</code>: Load pre-computed models for production use</li>
+                    </ul>
+                </div>
+                
+                <h4>4. FastAPI Application (`main.py`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> HTTP API server that coordinates between frontend and backend components.</p>
+                    <p><strong>Endpoints:</strong></p>
+                    <ul>
+                        <li><code>POST /recommend</code>: Get personalized recommendations (uses Recommender)</li>
+                        <li><code>POST /intake</code>: Process natural language input (uses IntakeSpecialist)</li>
+                        <li><code>GET /health</code>: Health check endpoint</li>
+                        <li><code>GET /docs</code>: Auto-generated OpenAPI documentation</li>
+                    </ul>
+                    <p><strong>Startup Event:</strong> Pre-loads all JSON/CSV files into memory for fast access.</p>
+                    <p><strong>Error Handling:</strong> Comprehensive exception handling with detailed error messages and logging.</p>
+                    <p><strong>CORS:</strong> Configured to allow requests from localhost:3000 and Vercel deployments.</p>
+                </div>
+                
+                <h4>Frontend Components</h4>
+                
+                <h4>1. Landing Page (`app/page.tsx`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Initial user intake—collect baby age and optional story.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Hybrid intake model: Required numeric age input + optional story textarea</li>
+                        <li>Validation: Ensures age is between 0-48 months</li>
+                        <li>Error handling: Displays user-friendly messages for API failures</li>
+                        <li>Graceful fallback: If `/intake` fails, uses only manual age and proceeds to dashboard</li>
+                        <li>Redirect: Automatically navigates to `/dashboard` after successful intake</li>
+                    </ul>
+                </div>
+                
+                <h4>2. Dashboard Page (`app/dashboard/page.tsx`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Main interface displaying recommendations and managing user progress.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>State management: Tracks recommendations, completed milestones, journey milestones, refilling slots</li>
+                        <li>Continuous growth loop: Completing a card immediately triggers new recommendation fetch</li>
+                        <li>Animation: Uses framer-motion for smooth card transitions (flying to sidebar, sliding in new cards)</li>
+                        <li>Loading states: Skeleton loaders for empty slots during refill</li>
+                        <li>Persistence: Loads from localStorage on mount, saves on updates</li>
+                        <li>Clear All: Button to reset user progress</li>
+                    </ul>
+                </div>
+                
+                <h4>3. PlayCard Component (`components/PlayCard.tsx`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Display individual recommendation with activity details.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Category-based styling: Foundational (amber), Likely (blue), Challenge (purple)</li>
+                        <li>Interactive button: "I did this!" → "Awesome! ✨" with confetti animation</li>
+                        <li>Activity display: Title, materials, instructions, benefit (science tip)</li>
+                        <li>Responsive design: Mobile-friendly layout with Tailwind CSS</li>
+                    </ul>
+                </div>
+                
+                <h4>4. JourneySidebar Component (`components/JourneySidebar.tsx`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Visual history of completed milestones.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Collapsible sidebar: "Our Journey" tab on right side</li>
+                        <li>Scrollable list: Displays all completed recommendations</li>
+                        <li>Animation target: Cards "fly" into sidebar when completed</li>
+                        <li>Persistence: Saved in localStorage, restored on page load</li>
+                    </ul>
+                </div>
+                
+                <h4>5. Header Component (`components/Header.tsx`)</h4>
+                <div class="component-card">
+                    <p><strong>Purpose:</strong> Sticky header with app branding and baby profile (age display/edit).</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Age display: Shows current baby age from localStorage</li>
+                        <li>Age editing: Allows updating age (triggers new recommendations)</li>
+                        <li>Validation: Ensures age is numeric and within valid range</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Deployment Section -->
+        <section id="deployment">
+            <h2>6. Deployment Architecture</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    Deploying NextPlay involves separating training artifacts from production code, ensuring all paths are relative and portable, 
+                    and configuring environment variables securely. The backend can be deployed to services like Render or Railway, while the frontend 
+                    can be deployed to Vercel. The key is that production deployments only need the `models/` folder, not the `training_data/` folder, 
+                    making deployments lean and fast.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Deployment Structure</h4>
+                <div class="diagram">
+<pre>
+PRODUCTION DEPLOYMENT (Backend)
+├── backend/
+│   ├── main.py                 # FastAPI app (entry point)
+│   ├── recommender.py          # Recommendation logic
+│   ├── engine_logic.py         # Data loading functions
+│   ├── intake_specialist.py    # NLP processing
+│   ├── config.py               # Configuration constants
+│   ├── utils.py                # Utility functions
+│   ├── requirements.txt        # Python dependencies
+│   ├── .env                    # Environment variables (OPENAI_API_KEY)
+│   └── models/                 # Generated JSON/CSV files
+│       ├── mastery_ages.json
+│       ├── transition_matrix.json
+│       ├── milestone_map.json
+│       ├── activities.json
+│       └── processed_milestones.csv
+│
+└── NOT INCLUDED:
+    ├── training_data/          # Excluded from production
+    ├── setup_data.py           # Training script
+    └── tests/                  # Optional (for CI/CD)
+
+PRODUCTION DEPLOYMENT (Frontend)
+├── frontend/
+│   ├── app/                    # Next.js app directory
+│   ├── components/             # React components
+│   ├── package.json            # Node.js dependencies
+│   └── .env.local              # Optional: API URL override
+│
+└── Build output:
+    └── .next/                  # Generated by Next.js build
+</pre>
+                </div>
+                
+                <h4>Backend Deployment (Render/Railway/Heroku)</h4>
+                <ol>
+                    <li><strong>Prepare Models:</strong> Ensure `models/` folder contains all generated JSON/CSV files (created during training).</li>
+                    <li><strong>Environment Variables:</strong> Set `OPENAI_API_KEY` in deployment platform's environment variable settings.</li>
+                    <li><strong>Requirements:</strong> `requirements.txt` includes all production dependencies (FastAPI, pandas, openai, python-dotenv).</li>
+                    <li><strong>Start Command:</strong> `uvicorn main:app --host 0.0.0.0 --port $PORT` (Render/Railway provide PORT env var).</li>
+                    <li><strong>Path Configuration:</strong> All file paths use `config.BASE_DIR` (relative to `main.py`), ensuring portability.</li>
+                </ol>
+                
+                <h4>Frontend Deployment (Vercel)</h4>
+                <ol>
+                    <li><strong>Build Command:</strong> `npm run build` (generates `.next/` directory).</li>
+                    <li><strong>Output Directory:</strong> `.next` (Vercel automatically detects Next.js).</li>
+                    <li><strong>Environment Variables:</strong> Set `NEXT_PUBLIC_API_URL` if backend is on a different domain (defaults to `http://localhost:8000` in development).</li>
+                    <li><strong>CORS:</strong> Backend must allow Vercel origin (configured via `VERCEL_ORIGIN_REGEX` in `config.py`).</li>
+                </ol>
+                
+                <h4>Local Development</h4>
+                <div class="component-card">
+                    <p><strong>Backend:</strong></p>
+                    <pre><code>cd backend
+source ../nexplay_env/bin/activate
+uvicorn main:app --reload --port 8000</code></pre>
+                    
+                    <p><strong>Frontend:</strong></p>
+                    <pre><code>cd frontend
+npm install  # First time only
+npm run dev</code></pre>
+                    
+                    <p><strong>Training (One-Time Setup):</strong></p>
+                    <pre><code>cd backend
+python setup_data.py      # Generate processed_milestones.csv, milestone_map.json
+python engine_logic.py    # Generate mastery_ages.json, transition_matrix.json
+# Manually create activities.json</code></pre>
+                </div>
+                
+                <h4>Security Considerations</h4>
+                <ul>
+                    <li><strong>API Keys:</strong> Never commit `.env` files to git (included in `.gitignore`). Use environment variables in deployment platforms.</li>
+                    <li><strong>CORS:</strong> Restrict allowed origins to known frontend domains (localhost for dev, Vercel for prod).</li>
+                    <li><strong>Input Validation:</strong> Pydantic models validate all API inputs (age ranges, data types).</li>
+                    <li><strong>Error Messages:</strong> Don't expose internal errors to frontend; return user-friendly messages.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Scalability Section -->
+        <section id="scalability">
+            <h2>7. Scalability & Future Enhancements</h2>
+            
+            <div class="intuition">
+                <h4>Intuition</h4>
+                <p>
+                    NextPlay is designed to scale horizontally (multiple servers) and vertically (better hardware). The stateless API design means 
+                    each request is independent, and the pre-computed models can be shared across instances. However, there are opportunities to 
+                    improve scalability (database for user state, caching for recommendations, CDN for static assets) and functionality (machine 
+                    learning models, real-time updates, multi-child support) as the user base grows.
+                </p>
+            </div>
+            
+            <div class="technical">
+                <h4>Current Scalability Characteristics</h4>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Current Implementation</th>
+                        <th>Scalability</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Backend State</strong></td>
+                        <td>Stateless (no user data stored)</td>
+                        <td>✅ Excellent: Can scale horizontally with load balancer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Loading</strong></td>
+                        <td>In-memory at startup (JSON/CSV files)</td>
+                        <td>⚠️ Limited: Model size grows with milestone count. For 1000+ milestones, consider database.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recommendation Generation</strong></td>
+                        <td>Real-time computation (fast due to pre-computed models)</td>
+                        <td>✅ Good: ~100ms per request. Can handle 100+ requests/second per instance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OpenAI API Calls</strong></td>
+                        <td>Per intake request (synchronous)</td>
+                        <td>⚠️ Limited: Rate limits and latency. Consider async processing or caching.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frontend State</strong></td>
+                        <td>localStorage (client-side)</td>
+                        <td>✅ Good: No server storage needed. Limited by browser storage (~5-10MB).</td>
+                    </tr>
+                </table>
+                
+                <h4>Potential Bottlenecks & Solutions</h4>
+                <div class="component-card">
+                    <h4>1. OpenAI API Rate Limits</h4>
+                    <p><strong>Problem:</strong> If many users sign up simultaneously, OpenAI API rate limits may be hit.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Implement request queuing with Redis or message broker (RabbitMQ, AWS SQS)</li>
+                        <li>Cache common milestone extractions (e.g., "can sit up" → "ddigmd063")</li>
+                        <li>Use async processing: Return immediately, process intake in background, notify when complete</li>
+                    </ul>
+                </div>
+                
+                <div class="component-card">
+                    <h4>2. Model File Size Growth</h4>
+                    <p><strong>Problem:</strong> As milestone count grows (e.g., 1000+ milestones), JSON files become large, increasing memory usage and startup time.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Migrate to database (PostgreSQL, MongoDB) for mastery ages and transition matrix</li>
+                        <li>Implement lazy loading: Load milestone data on-demand instead of all at startup</li>
+                        <li>Use binary formats (Protocol Buffers, MessagePack) for more efficient storage</li>
+                    </ul>
+                </div>
+                
+                <div class="component-card">
+                    <h4>3. Recommendation Computation</h4>
+                    <p><strong>Problem:</strong> Complex filtering and scoring logic may slow down with many completed milestones.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Cache recommendations per user state (Redis): key = hash(age, completed_ids), value = recommendations</li>
+                        <li>Pre-compute common recommendation sets (e.g., "new 6-month-old user" recommendations)</li>
+                        <li>Optimize filtering: Use database indexes for milestone lookups</li>
+                    </ul>
+                </div>
+                
+                <h4>Future Enhancement Ideas</h4>
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h4>Multi-Child Support</h4>
+                        <p>Allow parents to track multiple children. Requires backend user authentication and database storage.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Machine Learning Models</h4>
+                        <p>Train neural networks or gradient boosting models to predict next milestones more accurately than transition matrices.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Real-Time Updates</h4>
+                        <p>Use WebSockets to push new recommendations when new milestones are added to the dataset (e.g., monthly updates).</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Progress Analytics</h4>
+                        <p>Dashboard showing developmental trajectory, comparison to population averages, and milestone achievement timeline.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Activity Sequencing</h4>
+                        <p>Recommend multi-step activity sequences (e.g., "Do X, then Y, then Z") instead of individual activities.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Gender-Specific Recommendations</h4>
+                        <p>Leverage the `sex` column in the dataset to provide gender-aware recommendations (with statistical validation).</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Seasonal/Location-Based Activities</h4>
+                        <p>Filter activities based on weather (indoor vs. outdoor), location (home vs. park), and available materials.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Parent Community Features</h4>
+                        <p>Allow parents to share activities, rate recommendations, and see what other parents are doing with their babies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>NextPlay System Architecture Documentation</p>
+            <p>Last Updated: 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
+
