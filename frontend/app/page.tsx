@@ -46,6 +46,7 @@ export default function LandingPage() {
       let data: IntakeResponse
       
       try {
+        console.log('Calling API:', `${apiUrl}/intake`)
         const response = await fetch(`${apiUrl}/intake`, {
           method: 'POST',
           headers: {
@@ -56,19 +57,24 @@ export default function LandingPage() {
           }),
         })
 
+        console.log('API Response status:', response.status, response.statusText)
+
         if (!response.ok) {
           // Get error details from response
           let errorMessage = 'Failed to process intake'
           try {
             const errorData = await response.json()
             errorMessage = errorData.detail || errorMessage
+            console.error('API Error Response:', errorData)
           } catch {
             // If response isn't JSON, try to get text
             try {
               const errorText = await response.text()
               errorMessage = errorText || errorMessage
+              console.error('API Error Text:', errorText)
             } catch {
               errorMessage = `Server error (${response.status})`
+              console.error('API Error - Could not parse response')
             }
           }
           
@@ -87,9 +93,15 @@ export default function LandingPage() {
           }
         } else {
           data = await response.json()
+          console.log('API Success:', data)
         }
       } catch (fetchError) {
-        // Network errors - show error and don't proceed
+        // Network errors - log and rethrow
+        console.error('Fetch Error:', fetchError)
+        if (fetchError instanceof TypeError && fetchError.message.includes('Failed to fetch')) {
+          // CORS or network error
+          console.error('This is likely a CORS or network connectivity issue')
+        }
         throw fetchError
       }
 
@@ -113,12 +125,19 @@ export default function LandingPage() {
       
       // Show more specific error messages for common issues
       let userFriendlyMessage = 'Our specialist is taking a quick nap. Please try again in a moment.'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      
       if (errorMessage.includes('503') || errorMessage.includes('Intake Specialist is not available')) {
         userFriendlyMessage = 'The intake specialist is currently unavailable. Please ensure the backend is properly configured with OPENAI_API_KEY.'
       } else if (errorMessage.includes('500') || errorMessage.includes('Error processing intake')) {
         userFriendlyMessage = 'There was an issue processing your description. Please try again or check your connection.'
-      } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
-        userFriendlyMessage = 'Unable to connect to the server. Please make sure the backend is running at http://localhost:8000'
+      } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError') || errorMessage.includes('CORS')) {
+        // More helpful message for network/CORS issues
+        if (apiUrl.includes('localhost')) {
+          userFriendlyMessage = 'Unable to connect to the backend. If you\'re on the deployed site, please ensure NEXT_PUBLIC_API_URL is configured in Vercel.'
+        } else {
+          userFriendlyMessage = `Unable to connect to the backend at ${apiUrl}. Please check the connection or try again later.`
+        }
       }
       
       setError(userFriendlyMessage)
