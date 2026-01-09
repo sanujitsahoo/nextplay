@@ -145,5 +145,3 @@ python engine_logic.py    # Creates mastery_ages.json and transition_matrix.json
 
 ## License
 
-MIT
-
