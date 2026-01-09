@@ -40,14 +40,16 @@ export default function LandingPage() {
     setFollowUpQuestion(null)
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      // Normalize API URL (remove trailing slash to prevent double slashes)
+      const apiUrlBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/+$/, '')
+      const apiUrl = `${apiUrlBase}/intake`
       
       // POST only the story text to /intake endpoint to extract milestones
       let data: IntakeResponse
       
       try {
-        console.log('Calling API:', `${apiUrl}/intake`)
-        const response = await fetch(`${apiUrl}/intake`, {
+        console.log('Calling API:', apiUrl)
+        const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -125,7 +127,7 @@ export default function LandingPage() {
       
       // Show more specific error messages for common issues
       let userFriendlyMessage = 'Our specialist is taking a quick nap. Please try again in a moment.'
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      const apiUrlBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/+$/, '')
       
       if (errorMessage.includes('503') || errorMessage.includes('Intake Specialist is not available')) {
         userFriendlyMessage = 'The intake specialist is currently unavailable. Please ensure the backend is properly configured with OPENAI_API_KEY.'
@@ -133,10 +135,10 @@ export default function LandingPage() {
         userFriendlyMessage = 'There was an issue processing your description. Please try again or check your connection.'
       } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError') || errorMessage.includes('CORS')) {
         // More helpful message for network/CORS issues
-        if (apiUrl.includes('localhost')) {
+        if (apiUrlBase.includes('localhost')) {
           userFriendlyMessage = 'Unable to connect to the backend. If you\'re on the deployed site, please ensure NEXT_PUBLIC_API_URL is configured in Vercel.'
         } else {
-          userFriendlyMessage = `Unable to connect to the backend at ${apiUrl}. Please check the connection or try again later.`
+          userFriendlyMessage = `Unable to connect to the backend at ${apiUrlBase}. Please check the connection or try again later.`
         }
       }
       

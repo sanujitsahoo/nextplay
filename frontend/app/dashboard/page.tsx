@@ -66,15 +66,16 @@ export default function Dashboard() {
     setError(null)
 
     try {
-      // Use environment variable for API URL or fallback to localhost
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      // Normalize API URL (remove trailing slash to prevent double slashes)
+      const apiUrlBase = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/+$/, '')
+      const apiUrl = `${apiUrlBase}/recommend`
       
       // Use overrideCompleted if provided (for refills), otherwise use current state
       const completedIds = overrideCompleted || completedMilestones
       
-      console.log('Fetching recommendations:', { babyAge, completedIds, apiUrl, slotId })
+      console.log('Fetching recommendations:', { babyAge, completedIds, apiUrlBase, slotId })
       
-      const response = await fetch(`${apiUrl}/recommend`, {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
