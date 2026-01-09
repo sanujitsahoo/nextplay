@@ -259,8 +259,11 @@ Follow standard Python web application deployment procedures:
 3. **Configure Environment Variables:**
    - In Vercel dashboard, set `NEXT_PUBLIC_API_URL` to your backend URL (e.g., `https://your-backend.onrender.com`)
 
-4. **Update CORS Settings:**
-   - In `backend/config.py`, ensure your Vercel URL is included in `ALLOWED_ORIGINS` or matches the `VERCEL_ORIGIN_REGEX` pattern
+4. **Update Backend CORS Settings:**
+   - After deploying to Vercel, add your frontend URL to the backend:
+   - **Method 1 (Recommended):** Add environment variable `FRONTEND_URL` in Render with your Vercel URL
+   - **Method 2:** Update `backend/config.py` `ALLOWED_ORIGINS` list with your specific Vercel URL
+   - This restricts access to only your frontend, preventing unauthorized API usage
 
 #### Option 2: Netlify
 

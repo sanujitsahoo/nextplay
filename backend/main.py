@@ -21,6 +21,7 @@ from config import (
     MODELS_DIR,
     ALLOWED_ORIGINS,
     VERCEL_ORIGIN_REGEX,
+    FRONTEND_URL_ENV,
     API_TITLE,
     API_DESCRIPTION,
     API_VERSION,
@@ -50,11 +51,26 @@ app = FastAPI(
 )
 
 # CORS Configuration
-# Allow origins for development (localhost) and production (Vercel)
+# Build allowed origins list from config and environment variables
+cors_origins = list(ALLOWED_ORIGINS)  # Start with base allowed origins (localhost)
+
+# Add production frontend URL from environment variable if set
+frontend_url = os.getenv(FRONTEND_URL_ENV)
+if frontend_url:
+    cors_origins.append(frontend_url.strip())
+    print(f"✓ Added frontend URL to CORS: {frontend_url}")
+
+# Use regex only if explicitly enabled (for preview deployments)
+cors_regex = VERCEL_ORIGIN_REGEX if VERCEL_ORIGIN_REGEX else None
+if cors_regex:
+    print(f"✓ CORS regex enabled: {cors_regex} (allows matching origins)")
+else:
+    print(f"✓ CORS regex disabled (only explicit origins allowed: {cors_origins})")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
-    allow_origin_regex=VERCEL_ORIGIN_REGEX,
+    allow_origins=cors_origins,
+    allow_origin_regex=cors_regex,
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],

@@ -35,7 +35,7 @@ export default function PlayCard({
   const [showDetails, setShowDetails] = useState(false)
   const [isCompleting, setIsCompleting] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
-  const [buttonText, setButtonText] = useState<'I did this!' | 'Awesome!'>('I did this!')
+  const [buttonText, setButtonText] = useState<'I did this!' | 'Awesome! ✨'>('I did this!')
   const cardRef = useRef<HTMLDivElement>(null)
 
   const categoryColors = {

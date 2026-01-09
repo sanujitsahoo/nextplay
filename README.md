@@ -19,15 +19,7 @@ nextplay/
 │
 ├── frontend/            # Next.js 15 frontend
 │   ├── app/             # Next.js app directory
-│   │   ├── page.tsx     # Landing page (intake form)
-│   │   ├── dashboard/   # Dashboard route
-│   │   └── globals.css  # Global styles
 │   ├── components/      # React components
-│   │   ├── Header.tsx
-│   │   ├── DailyRecommendations.tsx
-│   │   ├── PlayCard.tsx
-│   │   └── JourneySidebar.tsx
-│   ├── types/           # TypeScript definitions
 │   └── package.json     # Node.js dependencies
 │
 ├── TECHNICAL_DOCUMENTATION.html  # Technical deep dive
@@ -97,9 +89,7 @@ npm run dev
 - `GET /health` - Health check
 - `GET /milestones` - List all milestones
 
-See `backend/README.md` for detailed backend documentation including API endpoints, modules, and development workflow.
-
-See `backend/docs/README_API.md` for complete API reference documentation.
+See `backend/README.md` and `backend/docs/README_API.md` for detailed API documentation.
 
 ## Development
 

@@ -34,13 +34,23 @@ ENV_OPENAI_MODEL = "OPENAI_MODEL"
 DEFAULT_OPENAI_MODEL = "gpt-4o-mini"
 
 # CORS Configuration
+# Base allowed origins (always allowed)
 ALLOWED_ORIGINS: List[str] = [
     "http://localhost:3000",
     "http://localhost:3001",  # Alternative dev port
 ]
 
-# CORS regex for Vercel deployments
-VERCEL_ORIGIN_REGEX = r"https://.*\.vercel\.app"
+# Production frontend URL (set via environment variable FRONTEND_URL)
+# This should be your specific Vercel deployment URL
+# Example: "https://nextplay.vercel.app" or "https://your-custom-domain.com"
+FRONTEND_URL_ENV = "FRONTEND_URL"
+
+# CORS regex for Vercel preview deployments (optional, more permissive)
+# Set to None to disable wildcard matching (more secure - recommended)
+# Only enable if you need to allow preview deployments from pull requests
+# WARNING: Enabling this allows ANY Vercel deployment to access your API
+VERCEL_ORIGIN_REGEX = None  # Disabled by default for security
+# To enable (not recommended): r"https://.*\.vercel\.app"
 
 # Recommendation Engine Constants
 DISCOVERY_WEIGHT_BASE = 0.2  # Base weight for discovery score
