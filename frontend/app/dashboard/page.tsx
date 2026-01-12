@@ -237,6 +237,18 @@ export default function Dashboard() {
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
+      
+      {/* Footer with feedback link */}
+      <footer className="w-full py-4 px-4 text-center border-t border-gray-200 bg-white/50 backdrop-blur-sm">
+        <a
+          href="https://forms.gle/ePxZfCME9Ng1eYyQ9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-teal-600 hover:text-teal-700 underline transition-colors"
+        >
+          Provide Feedback
+        </a>
+      </footer>
     </div>
   )
 }

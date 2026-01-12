@@ -276,6 +276,18 @@ export default function LandingPage() {
         <p className="text-center text-sm text-gray-500 mt-6">
           Your information is processed securely and used only to provide personalized recommendations.
         </p>
+        
+        {/* Feedback link */}
+        <div className="text-center mt-4">
+          <a
+            href="https://forms.gle/ePxZfCME9Ng1eYyQ9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-teal-600 hover:text-teal-700 underline transition-colors"
+          >
+            Provide Feedback
+          </a>
+        </div>
       </div>
     </div>
   )
